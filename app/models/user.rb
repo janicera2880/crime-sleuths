@@ -10,6 +10,6 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true, length: { minimum: 6 }
     validates :password, length: { in: 8..20 }
     validates :image_url, presence: true
-    validates :bio, length: { maximum: 300 }
+    validates :bio, length: { maximum: 500 }
     validates :location, presence: true
 end
