@@ -65,3 +65,7 @@ content: "Vallow, 49, is charged with first-degree murder in the deaths of her c
 user_id: u1.id, channel_id: c1.id)
         
 puts "✅ Done seeding!"
+
+p "Created #{Channel.count} channels"
+p "Created #{User.count} users"
+p "Created #{Post.count} posts"
