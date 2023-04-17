@@ -1,3 +1,7 @@
 class UserPostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :channel_id, :user_id
+  attributes :id, :title, :short_content, :channel_id, :user_id
+
+def short_content
+    object.content[0...40] + '...'
+  end
 end
