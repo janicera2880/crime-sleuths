@@ -3,5 +3,5 @@ class UserSerializer < ActiveModel::Serializer
 
   
   has_many :channels
-  has_many :posts, serializer:
+  has_many :posts, serializer: UserPostSerializer
 end
