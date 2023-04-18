@@ -3,7 +3,7 @@ class ChannelsController < ApplicationController
 
     skip_before_action :authorize, only: [:index]
 
-# GET ALL /channels
+# GET /channels
     def index
         channel = Channel.all
         render json: channel, include: ['posts']
@@ -15,7 +15,7 @@ class ChannelsController < ApplicationController
         render json: channel, status: :created
     end
 
-# SHOW display a specific channel
+# SHOW display a specific /channels/:id
     def show
         channel = Channel.find(params[:id])
         render json: channel, include: ['posts', 'posts.user']

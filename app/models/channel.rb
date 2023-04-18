@@ -4,5 +4,5 @@ class Channel < ApplicationRecord
     has_many :users, through: :posts
 
     validates :name, presence: true, uniqueness: { case_sensitive: false }
-    validates :description, presence: true, length: { maximum: 500 }
+    validates :description, presence: true, length: { minimum: 200 }
 end
