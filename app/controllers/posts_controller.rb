@@ -4,9 +4,13 @@ class PostsController < ApplicationController
     #GET /posts
     def index
         posts = Post.all.includes(:user)
-        render json: posts, include: :user
+        render json: posts, include: ['user']
       end
-    
       
+    # GET /posts/:id
+    def show
+        post = Post.find(params[:id])
+        render json: post, include: ['user']
+    end
 
 end
