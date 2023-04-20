@@ -1,12 +1,14 @@
-import React from "react";
+import LoginForm from "./LoginForm";
 import headerImg from "../headerAnimate.gif"
 
-function Home() {
+const Home = () => {
     return (
-      <div className="logo">        
+      <div>        
         <img id="logoImg" src={headerImg} alt="crimesleuthsImg"/>
+        <br></br>
+        <LoginForm />
       </div>
     );
-  }
+  };
   
   export default Home;
