@@ -1,17 +1,16 @@
 class ChannelsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    skip_before_action :authorize, only: [:index]
+    skip_before_action :authorize, only: :index
 
 # GET /channels
     def index
-        channel = Channel.all
-        render json: channel, include: ['posts']
+        render json: Channel.all.order(:id)
     end
 
-# POST create post
+# POST create Channel
     def create
-        channel = Channel.create!(channel_params)
+        channel = @current_user.channel.create!(channel_params)
         render json: channel, status: :created
     end
 
