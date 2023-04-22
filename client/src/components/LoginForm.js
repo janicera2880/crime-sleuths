@@ -8,7 +8,7 @@ const LoginForm = () => {
       username: "",
       password: "",
     };
-    const [values, setValues] = useState(initialValues);
+    const [values, setValues] = useState(initialState);
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
     const { setUser } = useContext(UserContext);
