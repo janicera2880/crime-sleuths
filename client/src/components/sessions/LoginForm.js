@@ -56,43 +56,42 @@ const LoginForm = () => {
 
 
   return (
-    <div>
-   
-      <h1>Please Login To Your Account</h1>
+    
       <form onSubmit={handleSubmit}>
-        <label>
-          Username
-          <input
+        <FormField>
+        <Label htmlFor="username">Username</Label>
+          <Input
             type="text"
             name="username"
             placeholder="Username"
             value={values.username}
             onChange={saveInput}
-          ></input>
-        </label>
+            />
+        </FormField>
         <br></br>
-        <label>
-          Password
-          <input
+        <FormField>
+        <Label htmlFor="password">Password</Label>
+        <Input
             type="password"
             name="password"
             autoComplete="on"
             placeholder="Password"
             value={values.password}
             onChange={saveInput}
-          ></input>
-        </label>
-        <button type="submit" value={isLoading ? "Loading..." : "Log In"} />
-      
-      <br></br>
-        {errors.map((error) => (
-          <li className="error" key={error}>Error: {error}</li>
-          </form>
+          />
+        </FormField>
+        <FormField>
+        <Button variant="fill" color="primary" type="submit">
+          {isLoading ? "Loading..." : "Login"}
+        </Button>
+      </FormField>
+      <FormField>
+        {errors.map((err) => (
+          <Error key={err}>{err}</Error>
         ))}
-   
-
-    </div>
+      </FormField>
+    </form>
   );
-};
+}
 
 export default LoginForm;
