@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { UserContext } from "./components/context/user";
 import { useNavigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
 import { Button, Error, Input, FormField, Label } from "../../styles";
 
 

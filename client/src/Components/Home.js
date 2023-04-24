@@ -20,7 +20,7 @@ function WelcomePage(){
 function LoginMessage(){
     return(
         <p>
-            Please <Link to={"/login"}>log in</Link>
+            Please <Link to={"/login"}>Log in to your Account!</Link>
         </p>
     )
 }

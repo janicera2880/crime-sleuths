@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 
@@ -6,7 +6,7 @@ function Dashboard(){
     const { user } = useContext(UserContext);
    
 
-    function ProfileComponent(){
+    function DashboardView(){
         return(
         <div>
             {user.username} 's Dashboard
@@ -24,9 +24,9 @@ function Dashboard(){
             <br />
             {user.location}
             
-            <Link to={"/user/posts"}> Your Reviews </Link>
+            <Link to={"/user/posts"}> Your Posts </Link>
             <br />
-            <Link to={"/user/channels"}> Your Channels </Link>
+            <Link to={"/channels"}> Reading List </Link>
             <br />
             <br />
             <Link to={"/updateblogger"}><button>Edit Profile</button></Link>
@@ -36,7 +36,7 @@ function Dashboard(){
 
     return(
         <div>
-            {user? <ProfileComponent /> : ""}
+            {user? <DashboardView /> : ""}
         </div>
     )
 }
