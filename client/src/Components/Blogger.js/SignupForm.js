@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Error, Input, FormField, Label, Textarea } from "../styles";
+import { Button, Error, Input, FormField, Label, Textarea } from "../../styles";
 
 function SignupForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -87,6 +87,16 @@ function SignupForm({ onLogin }) {
           value={bio}
           onChange={(e) => setBio(e.target.value)}
         />
+        </FormField>
+        <FormField>
+        <Label htmlFor="location">Location</Label>
+        <Input
+          type="text"
+          id="location"
+          autoComplete="off"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />    
       </FormField>
       <FormField>
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
-import { UserContext } from "../context/user";
+import { UserContext } from "./components/context/user";
 import { useNavigate } from "react-router-dom";
-import { Button, Error, Input, FormField, Label } from "../styles";
+import { Button, Error, Input, FormField, Label } from "../../styles";
 
 
 

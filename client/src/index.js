@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { UserProvider } from "./context/user";
+import { UserProvider } from "./Context/UserContext";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
