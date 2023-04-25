@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { UserContext } from "./components/context/user";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import { Button, Error, Input, FormField, Label } from "../../styles";
 
@@ -14,8 +14,8 @@ const LoginForm = () => {
   const [values, setValues] = useState(prevStates);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { setUser } = useContext(UserContext);
-  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
+  //const navigate = useNavigate();
 
   
   const saveInput = (e) => {
@@ -46,7 +46,7 @@ const LoginForm = () => {
         setErrors([]);
         r.json().then((user) => {
           setUser(user);
-          navigate("/books");
+          //navigate("/channels");
         });
       } else {
         // r.json().then((err) => console.log(err));
@@ -59,6 +59,10 @@ const LoginForm = () => {
 
 
   return (
+    <div>
+            { user?
+            <Dashboard />: 
+            <div>
     
       <form onSubmit={handleSubmit}>
         <FormField>
@@ -94,6 +98,9 @@ const LoginForm = () => {
         ))}
       </FormField>
     </form>
+
+    </div>}
+    </div>
   );
 }
 

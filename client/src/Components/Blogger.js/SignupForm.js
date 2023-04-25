@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../Context/UserContext";
 import { Button, Error, Input, FormField, Label, Textarea } from "../../styles";
 
-function SignupForm({ onLogin }) {
+function SignupForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -10,6 +11,7 @@ function SignupForm({ onLogin }) {
   const [location, setLocation] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const {setUser} = useContext(UserContext);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,7 +33,7 @@ function SignupForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => setUser(user));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -39,6 +41,8 @@ function SignupForm({ onLogin }) {
   }
 
   return (
+    <div>
+    Account Sign up
     <form onSubmit={handleSubmit}>
       <FormField>
         <Label htmlFor="username">Username</Label>
@@ -107,6 +111,7 @@ function SignupForm({ onLogin }) {
         ))}
       </FormField>
     </form>
+    </div>
   );
 }
 
