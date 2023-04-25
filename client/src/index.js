@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { ChannelsProvider } from "./Context/ChannelContext";
 import { UserProvider } from "./Context/UserContext";
 import { createGlobalStyle } from "styled-components";
 
@@ -23,8 +24,10 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
+      <ChannelsProvider>
     <GlobalStyle />
       <App />
+      </ChannelsProvider>
     </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")
