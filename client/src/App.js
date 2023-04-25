@@ -1,13 +1,13 @@
 import Home from './Components/Home';
 import './App.css';
 import { UserContext } from './Context/UserContext';
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 
 
 
 
 function App() {
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   useEffect( ()=>{
     fetch("/me").then( (r) => {

@@ -15,14 +15,14 @@ function LoginLogoutToggle(){
         })
     }
 
-    function toLogin(){
+    function ToLogin(){
         return (
             <Link to={"/login"}>
                 <button> Log In </button>
             </Link>
         )
     }
-    function toLogout(){
+    function ToLogout(){
         return (
             <Link to={"/"}>
                 <button onClick={logOut}>
@@ -35,7 +35,7 @@ function LoginLogoutToggle(){
     
     return(
         <span>
-            { user? <toLogout /> : <toLogin /> }
+            { user? <ToLogout/> : <ToLogin/> }
         </span>
     )
 }
