@@ -18,7 +18,7 @@ function LoginLogoutToggle(){
     function ToLogin(){
         return (
             <Link to={"/login"}>
-                <button> Log In </button>
+                <button> Login </button>
             </Link>
         )
     }
@@ -26,7 +26,7 @@ function LoginLogoutToggle(){
         return (
             <Link to={"/"}>
                 <button onClick={logOut}>
-                    Log Out
+                    Logout
                 </button>
             </Link>
 
