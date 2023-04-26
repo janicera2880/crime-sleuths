@@ -21,7 +21,7 @@ function NavigationBar(){
                 <h4>Navigation</h4>
                 <Link to={"/"}> Home </Link> ~|~
                 <Link to={"/posts"}> Recent Posts </Link> ~|~
-                <Link to={"/channels"}> All channels </Link> ~|~
+                <Link to={"/channels"}> All Channels </Link> ~|~
             </span>
             <span>
                 { user? <NametagButton /> : <Link to={"/signup"}><button> Sign Up </button></Link> }

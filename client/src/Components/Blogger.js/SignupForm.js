@@ -42,7 +42,7 @@ function SignupForm() {
 
   return (
     <div>
-    Account Sign up
+    New Account Sign Up
     <form onSubmit={handleSubmit}>
       <FormField>
         <Label htmlFor="username">Username</Label>

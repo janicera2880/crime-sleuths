@@ -24,12 +24,11 @@ function Dashboard(){
             <br />
             {user.location}
             
-            <Link to={"/user/posts"}> Your Posts </Link>
+            <Link to={"/user/posts"}> My Posts </Link>
             <br />
-            <Link to={"/channels"}> Reading List </Link>
+            <Link to={"/channels"}> Channels Lists </Link>
             <br />
-            <br />
-            <Link to={"/updateblogger"}><button>Edit Profile</button></Link>
+            
         </div>
         )
     }
