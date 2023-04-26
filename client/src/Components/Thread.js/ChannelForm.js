@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
+import { Button, Error, FormField, Input, Label, Textarea } from "../../styles";
 import { useNavigate } from "react-router-dom";
 
 
@@ -44,34 +44,34 @@ function ChannelForm({ }) {
         <form onSubmit={handleSubmit}>
         <FormField>
         <Label htmlFor="name">Channel Name</Label>
-          <Input
-            type="text"
-            name="name"
-            placeholder="name"
-            autoComplete="off"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            />
+        <Input
+        type="text"
+        name="name"
+        placeholder="name"
+        autoComplete="off"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+        />
         </FormField>
 
         <FormField>
         <Label htmlFor="bio">Description</Label>
         <Textarea
-          rows="20"
-          id="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
+        rows="20"
+        id="description"
+        value={description}
+        onChange={(event) => setDescription(event.target.value)}
         />
         </FormField>
         <FormField>
         <Button type="submit">{isLoading ? "Loading..." : "Submit"}</Button>
-      </FormField>
-      <FormField>
-      {errors.map((err) => (
-          <Error key={err}>{err}</Error>
+        </FormField>
+        <FormField>
+        {errors.map((err) => (
+        <Error key={err}>{err}</Error>
         ))}
-         </FormField>
-         </form>
+        </FormField>
+        </form>
       </div>
     );
   }
