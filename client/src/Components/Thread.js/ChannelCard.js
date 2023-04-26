@@ -6,7 +6,7 @@ function ChannelCard({name, id}) {
   return (
     <li className="ChannelCard">
       <p><span style={{fontSize: "x-large"}}>{name}</span></p>
-      <Link className="detailsLink" to={`/channels/${id}`}>Get Channels Details!</Link>
+      <Link className="channelsLink" to={`/channels/${id}`}>Get Channels Details!</Link>
     </li>
     
   )
