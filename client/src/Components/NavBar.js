@@ -1,5 +1,5 @@
 import React, { useContext} from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import Nametag from "./Blogger.js/Nametag";
 import LoginLogoutToggle from "./Blogger.js/LoginLogoutToggle";
@@ -16,17 +16,17 @@ function NavigationBar(){
     }
 
     return(
-        <div>
+        <div className="navbar">
+            <nav>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/posts"> Recent Posts</NavLink>
+            <NavLink to="/channels">All Channels</NavLink>
+          
             <span>
-                <h4>Navigation</h4>
-                <Link to={"/"}> Home </Link> ~|~
-                <Link to={"/posts"}> Recent Posts </Link> ~|~
-                <Link to={"/channels"}> All Channels </Link> ~|~
-            </span>
-            <span>
-                { user? <NametagButton /> : <Link to={"/signup"}><button> Sign Up </button></Link> }
+                { user? <NametagButton /> : <NavLink to="/signup"><button>Sign Up</button></NavLink> }
                 <LoginLogoutToggle />
             </span>
+            </nav>
         </div>
     )
 }

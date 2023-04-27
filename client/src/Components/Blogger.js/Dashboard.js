@@ -11,7 +11,6 @@ function Dashboard(){
         <div>
             {user.username} 's Dashboard
             <br />
-            <br />
             {user.image_url}
             <br />
            
@@ -26,7 +25,7 @@ function Dashboard(){
             
             <Link to={"/user/posts"}> My Posts </Link>
             <br />
-            <Link to={"/channels"}> Channels Lists </Link>
+            <Link to={"/user/channels"}> Create New Post </Link>
             <br />
             
         </div>

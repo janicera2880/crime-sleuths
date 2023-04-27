@@ -19,9 +19,11 @@ function WelcomePage(){
 
 function LoginMessage(){
     return(
-        <p>
-            Please <Link to={"/login"}>Log in to your Account!</Link>
+        <p>    
+        <img id="logoImg" src={headerImg} alt="crimesleuthsImg"/>
+        Please <Link to={"/login"}>Log in to your Account!</Link>
         </p>
+    
     )
 }
 

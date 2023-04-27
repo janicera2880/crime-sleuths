@@ -15,7 +15,7 @@ function App() {
             r.json().then( (data) => setUser(data) );
         }
     });
-  }, [] )
+  }, [setUser] )
   
   
   return (

@@ -6,7 +6,7 @@ function LoginLogoutToggle(){
 
     const { user, setUser } = useContext(UserContext);
 
-    function logOut(){
+    function handleLogout(){
         fetch("/logout",{
             method: "DELETE"
         }).then( ()=> {
@@ -25,7 +25,7 @@ function LoginLogoutToggle(){
     function ToLogout(){
         return (
             <Link to={"/"}>
-                <button onClick={logOut}>
+                <button onClick={handleLogout}>
                     Logout
                 </button>
             </Link>

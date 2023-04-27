@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { UserContext } from "./components/context/user";
-//import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import { Button, Error, Input, FormField, Label } from "../../styles";
 
@@ -15,7 +14,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { user, setUser } = useContext(UserContext);
-  //const navigate = useNavigate();
+
 
   
   const saveInput = (e) => {
@@ -46,7 +45,6 @@ const LoginForm = () => {
         setErrors([]);
         r.json().then((user) => {
           setUser(user);
-          //navigate("/channels");
         });
       } else {
         // r.json().then((err) => console.log(err));
