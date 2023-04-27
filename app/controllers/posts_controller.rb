@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     
-    # GET /posts
+    
     def index
-        posts = Post.all
+        if params[:channel_id]
+            channel = Channel.find(params[:channel_id])
+            posts = channel.posts
+        else 
+            render json: render_not_found_response
+        end
         render json: posts
-      end
+    end
       
     # GET /posts/:id
     def show

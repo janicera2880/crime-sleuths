@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :index]
+    skip_before_action :authorize, only: [:create, :index], raise: false
 
     # GET ALL Users
     def index
         users = User.all
-        render json: authors, include: ['posts']
+        render json: users
     end
       
     def create
