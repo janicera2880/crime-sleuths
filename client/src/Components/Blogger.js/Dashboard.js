@@ -25,9 +25,11 @@ function Dashboard(){
             
             <Link to={"/user/posts"}> My Posts </Link>
             <br />
-            <Link to={"/user/channels"}> Create New Post </Link>
+            <Link to={"/user/channels"}> My Channels </Link>
             <br />
-            
+            <br />
+            <Link to={"/updateuser"}><button>Update Profile</button></Link>
+           
         </div>
         )
     }

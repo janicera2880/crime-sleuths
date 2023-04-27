@@ -4,7 +4,7 @@ import { UserContext } from "../../Context/UserContext";
 import Nametag from "./Blogger.js/Nametag";
 import LoginLogoutToggle from "./Blogger.js/LoginLogoutToggle";
 
-function NavigationBar(){
+function NavBar(){
    
 
     const { user } = useContext(UserContext);
@@ -31,4 +31,4 @@ function NavigationBar(){
     )
 }
 
-export default NavigationBar;
+export default NavBar;
