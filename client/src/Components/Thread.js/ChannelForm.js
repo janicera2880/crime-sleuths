@@ -34,9 +34,8 @@ const ChannelForm = ({ onAddChannel }) => {
         });
     
     
-        setTitle(""),
-        setImage(""),
-        setContent("");
+        setName(""),
+        setDescription(""),
       }
 
       return (
