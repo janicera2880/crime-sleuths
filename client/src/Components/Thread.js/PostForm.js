@@ -34,13 +34,7 @@ const PostForm = ({ onAddPost }) => {
         // r.json().then((data) => console.log(data));
         r.json().then((newPost) => onAddPost(newPost));
       } else {
-        r.json().then((error) => {
-          if (error.errors) {
-            setErrors(error.errors);
-          } else {
-            setErrors([error.error]);
-          }
-        });
+        r.json().then((err) => setErrors(err.errors));
       }
     });
 
@@ -91,8 +85,8 @@ const PostForm = ({ onAddPost }) => {
         <Button type="submit">Submit</Button>
         </FormField>
         <FormField>
-        {errors.map((error) => (
-        <Error key={error}>{error}</Error>
+        {errors.map((err) => (
+        <Error key={err}>{err}</Error>
         ))}
         </FormField>
         </form>

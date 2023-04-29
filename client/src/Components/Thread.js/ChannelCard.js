@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 
-function ChannelCard({name, id}) {
+function ChannelCard({channels, id}) {
 
   return (
     <li className="ChannelCard">
