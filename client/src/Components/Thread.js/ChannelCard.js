@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom"
+import { UserContext } from "../../Context/UserContext";
 
-function ChannelCard({channels, id}) {
+function ChannelCard({ channel }) {
+  const { user } = useContext(UserContext);
 
-  return (
-    <li className="ChannelCard">
-      <p><span style={{fontSize: "x-large"}}>{name}</span></p>
-      <Link className="channelsLink" to={`/channels/${id}`}>Get Channels Details!</Link>
-    </li>
-    
-  )
+  return(
+    <div>
+        { user?
+         <Link to={`/channels/${channel.id}`}><h4>{ channel.name }</h4></Link>
+        :
+        <h4> {channel.name} </h4>
+         }
+        <span>{ channel.description }</span>
+    </div>
+)
 }
 
 export default ChannelCard;

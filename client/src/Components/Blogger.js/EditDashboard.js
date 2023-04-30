@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
-
 function EditDashboard(){
 
     const [ updateValues, setUpdateValues ] = useState({
@@ -13,8 +12,9 @@ function EditDashboard(){
     })
 
     const { user, setUser } = useContext(UserContext)
-
     const [userUpdated, setUserUpdated] = useState(false);
+
+    
 
     function handleInput(e){
         const key = e.target.name;
@@ -108,12 +108,12 @@ function EditDashboard(){
                     <input type={"text"} name={"location"} value={updateValues.location} onChange={handleInput} />
                     <br />
                     <br />
-                    <button type="Submit"> Submit </button> or <Link to={"/profile"}><button onClick={unsuccessfulMessage}> Back </button></Link>
+                    <button type="Submit"> Submit </button> or <Link to={"/dashboard"}><button onClick={unsuccessfulMessage}> Back To Dashboard </button></Link>
                 </form>
-                <br />
-                <br />
-                <br />
-                {userUpdated? <SuccessMessage /> : ""}
+                    <br />
+                    <br />
+                    <br />
+                    {userUpdated? <SuccessMessage /> : ""}
             </div>
         </div>
     )
