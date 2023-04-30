@@ -3,94 +3,114 @@ import { UserContext } from "../../Context/UserContext";
 import { Button, Error, Input, FormField, Label, Textarea } from "../../styles";
 
 function SignupForm() {
+  
+  //Define separate state variables for each form field
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [bio, setBio] = useState("");
   const [location, setLocation] = useState("");
+
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const {setUser} = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
+    // Update the API endpoint and payload with the new field names
     fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
-        password,
-        password_confirmation: passwordConfirmation,
-        image_url: imageUrl,
-        bio,
-        location,
+        user: {
+          username,
+          password,
+          password_confirmation: passwordConfirmation,
+          image_url: imageUrl,
+          bio,
+          location
+        }
       }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user);
+          resetForm();
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
   }
 
+  function resetForm() {
+    setUsername("");
+    setPassword("");
+    setPasswordConfirmation("");
+    setImageUrl("");
+    setBio("");
+    setLocation("");
+  }
+
   return (
     <div>
-    New Account Sign Up
-    <form onSubmit={handleSubmit}>
-      <FormField>
-        <Label htmlFor="username">Username</Label>
-        <Input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password</Label>
-        <Input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password Confirmation</Label>
-        <Input
-          type="password"
-          id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete="current-password"
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="imageUrl">Profile Image</Label>
-        <Input
-          type="text"
-          id="imageUrl"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="bio">Bio</Label>
-        <Textarea
-          rows="3"
-          id="bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-        />
+      {/* Add a heading for the form */}
+      <h2>New Account Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <FormField>
+          <Label htmlFor="username">Username</Label>
+          {/* Update the value and onChange props of the Input fields */}
+          <Input
+            type="text"
+            id="username"
+            autoComplete="off"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </FormField>
+        <FormField>
+          <Label htmlFor="password">Password</Label>
+          <Input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+          />
+        </FormField>
+        <FormField>
+          <Label htmlFor="password_confirmation">Password Confirmation</Label>
+          <Input
+            type="password"
+            id="password_confirmation"
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            autoComplete="current-password"
+          />
+        </FormField>
+        <FormField>
+          <Label htmlFor="imageUrl">Profile Image</Label>
+          <Input
+            type="text"
+            id="imageUrl"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+          />
+        </FormField>
+        <FormField>
+          <Label htmlFor="bio">Bio</Label>
+          <Textarea
+            rows="3"
+            id="bio"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+          />
         </FormField>
         <FormField>
         <Label htmlFor="location">Location</Label>
