@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Error, FormField, Input, Label, Textarea } from "../../styles";
+
 
 const PostForm = ({ onAddPost }) => {
     const [title, setTitle] = useState("");
@@ -8,7 +9,7 @@ const PostForm = ({ onAddPost }) => {
     const [content, setContent] = useState("");
     const [errors, setErrors] = useState([]);
     const { id } = useParams();
- 
+    
 
     const channelId = parseInt(id);
 
