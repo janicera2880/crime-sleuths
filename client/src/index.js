@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { UserProvider } from "./Context/UserContext";
 import { createGlobalStyle } from "styled-components";
+import { PostsProvider } from './Context/PostsContext';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -24,7 +25,9 @@ ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
     <GlobalStyle />
+      <PostsProvider>
       <App />
+      </PostsProvider>
     </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")
