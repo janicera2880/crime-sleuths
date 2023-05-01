@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Error, FormField, Input, Label, Textarea } from "../../styles";
 
-
+// The `onAddPost` function is passed down as a prop from the parent component
 const PostForm = ({ onAddPost }) => {
+
+  // Initialize the form fields as empty strings and an empty array for errors
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
     const [content, setContent] = useState("");
     const [errors, setErrors] = useState([]);
+    // Get the `id` parameter from the URL to determine the channelId
     const { id } = useParams();
     
 
@@ -18,6 +21,7 @@ const PostForm = ({ onAddPost }) => {
     event.preventDefault();
    
     const post = {
+      // Pass in the values of the form fields
       title: setTitle,
       image: setImage,
       content: setContent,
@@ -38,7 +42,7 @@ const PostForm = ({ onAddPost }) => {
         r.json().then((err) => setErrors(err.errors));
       }
     });
-
+ // Clear the form fields after submission
     setTitle(""),
     setImage(""),
     setContent("");
@@ -46,7 +50,7 @@ const PostForm = ({ onAddPost }) => {
 
   return (
     <div>
-      <br></br>
+      <br />
       <div className="text">Create New Post!</div>  
       <form onSubmit={handleSubmit}>
       <FormField>
@@ -87,6 +91,7 @@ const PostForm = ({ onAddPost }) => {
         </FormField>
         <FormField>
         {errors.map((err) => (
+          /* Display any errors returned by the server */
         <Error key={err}>{err}</Error>
         ))}
         </FormField>

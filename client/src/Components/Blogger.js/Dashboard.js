@@ -39,7 +39,7 @@ function Dashboard(){
 
     return(
         <div>
-            {/* If user is logged in, display DashboardView */}
+            {/* If user is logged in, display DashboardView  using Ternary Operation*/}
             {user? <DashboardView /> : ""}
         </div>
     )

@@ -1,35 +1,40 @@
+// Import the necessary dependencies
 import { useState, useContext } from "react";
 import { UserContext } from "./components/context/user";
 import Dashboard from "./Dashboard";
 import { Button, Error, Input, FormField, Label } from "../../styles";
 
-
-
+// Create LoginForm functional component
 const LoginForm = () => {
+
+  // Initialize the previous state
   const prevStates = {
     username: "",
     password: "",
   };
+
+  // Create state hooks for values, errors, and isLoading
   const [values, setValues] = useState(prevStates);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Get the user and setUser from the context
   const { user, setUser } = useContext(UserContext);
 
-
-  
+  // Create a function to save the input value
   const saveInput = (e) => {
-    const { key, value } = e.target;
+    const { name, value } = e.target;
 
+    // Set the new value in the state
     setValues({
       ...values,
-      [key]: value,
+      [name]: value,
     });
-    // console.log(values);
   };
 
+  // Create a function to handle form submit
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log("submitted");
    
     setIsLoading(true);
 
@@ -47,59 +52,58 @@ const LoginForm = () => {
           setUser(user);
         });
       } else {
-        // r.json().then((err) => console.log(err));
         r.json().then((err) => setErrors(err.error));
       }
     });
 
+    // Reset the input values
     setValues(prevStates);
   }
 
-
+  // Render the LoginForm component
   return (
     <div>
-            { user?
-            <Dashboard />: 
-            <div>
-    
-      <form onSubmit={handleSubmit}>
-        <FormField>
-        <Label htmlFor="username">Username</Label>
-          <Input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={values.username}
-            onChange={saveInput}
-            />
-        </FormField>
-        <br></br>
-        <FormField>
-        <Label htmlFor="password">Password</Label>
-        <Input
-            type="password"
-            name="password"
-            autoComplete="on"
-            placeholder="Password"
-            value={values.password}
-            onChange={saveInput}
-          />
-        </FormField>
-        <FormField>
-        <Button variant="fill" color="primary" type="submit">
-          {isLoading ? "Loading..." : "Login"}
-        </Button>
-      </FormField>
-      <FormField>
-        {errors.map((err) => (
-          <Error key={err}>{err}</Error>
-        ))}
-      </FormField>
-    </form>
-
-    </div>}
+      {user ?
+        <Dashboard /> :
+        <div>
+          <form onSubmit={handleSubmit}>
+            <FormField>
+              <Label htmlFor="username">Username</Label>
+              <Input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={values.username}
+                onChange={saveInput}
+              />
+            </FormField>
+            <br />
+            <FormField>
+              <Label htmlFor="password">Password</Label>
+              <Input
+                type="password"
+                name="password"
+                autoComplete="on"
+                placeholder="Password"
+                value={values.password}
+                onChange={saveInput}
+              />
+            </FormField>
+            <FormField>
+              <Button variant="fill" color="primary" type="submit">
+                {isLoading ? "Loading..." : "Login"}
+              </Button>
+            </FormField>
+            <FormField>
+              {errors.map((err) => (
+                <Error key={err}>{err}</Error>
+              ))}
+            </FormField>
+          </form>
+        </div>}
     </div>
   );
-}
+};
 
+// Export the LoginForm component
 export default LoginForm;

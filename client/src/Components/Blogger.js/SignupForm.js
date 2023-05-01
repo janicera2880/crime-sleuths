@@ -20,7 +20,7 @@ function SignupForm() {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    // Update the API endpoint and payload with the new field names
+    // Update the API endpoint with the new field names
     fetch("/signup", {
       method: "POST",
       headers: {

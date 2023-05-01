@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
-function EditDashboard(){
 
+
+function EditDashboard(){
+    //set the initial state for updating user info
     const [ updateValues, setUpdateValues ] = useState({
         "username": "",
         "image_url": "",
@@ -10,12 +12,14 @@ function EditDashboard(){
         "location": "",
         "id":""
     })
-
+    // get and set the user data using the useContext
     const { user, setUser } = useContext(UserContext)
+
+    // use useState hook to show a success message when the user info is updated
     const [userUpdated, setUserUpdated] = useState(false);
 
     
-
+    // handle input changes in the form
     function handleInput(e){
         const key = e.target.name;
         const value = e.target.value;
@@ -24,6 +28,7 @@ function EditDashboard(){
         setUpdateValues(newData);
     }
 
+    // handle form submission to update user info
     function handleSubmitClick(e){
         e.preventDefault();
         const userData = {...updateValues}
@@ -40,8 +45,9 @@ function EditDashboard(){
         if(userData.location === ""){
             userData.location = user.location;
         }
-
+        // send a PATCH request to update user info
         changeUpdate(userData);
+        // clear the form and set the success message to true
         clearForm();
     }
 
@@ -53,10 +59,11 @@ function EditDashboard(){
             },
             body: JSON.stringify(data)
         }).then(r => r.json() ).then(data=>{
+            // update user data with the new data
             setUser(data);
         })
     }
-
+    // clear the form and set the success message to true
     function clearForm(){
         const userInfo = {
             "username": "",
@@ -69,6 +76,7 @@ function EditDashboard(){
         setUpdateValues(userInfo);
     }
 
+    // show a success message when the user info is updated
     function SuccessMessage(){
         return(
             <p>
@@ -76,14 +84,14 @@ function EditDashboard(){
             </p>
         )
     }
-
+    // reset the userUpdated state when navigating back to the dashboard
     function unsuccessfulMessage(){
         if(userUpdated){
             setUserUpdated(false);
         }
     }
 
-
+    // render the form and the success message
     return(
         <div>
             Update Info
@@ -93,11 +101,9 @@ function EditDashboard(){
                     <br />
                     <input type={"text"} name={"username"} value={updateValues.username} onChange={handleInput} />
                     <br />
-                    <br />
                     Profile Image
                     <br />
                     <input type={"text"} name={"image_url"} value={updateValues.image_url} onChange={handleInput} />
-                    <br />
                     <br />
                     Bio
                     <br />
@@ -107,10 +113,8 @@ function EditDashboard(){
                     <br />
                     <input type={"text"} name={"location"} value={updateValues.location} onChange={handleInput} />
                     <br />
-                    <br />
                     <button type="Submit"> Submit </button> or <Link to={"/dashboard"}><button onClick={unsuccessfulMessage}> Back To Dashboard </button></Link>
                 </form>
-                    <br />
                     <br />
                     <br />
                     {userUpdated? <SuccessMessage /> : ""}
