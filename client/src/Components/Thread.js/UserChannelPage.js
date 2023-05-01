@@ -23,10 +23,12 @@ function UserChannelPage(){
             <br />
             <Link to={"/user"}>Dashboard</Link>
             <br />
-            {myChannel}
-            <br />
-        </div>
-    )
+            {myChannel.length > 0 ? (myChannel) : (
+        <p>No channels found. Create a new channel to get started!</p>)}
+      <Link to={"/channels"}>Create New Channel</Link>
+      <br />
+    </div>
+  );
 }
 
 export default UserChannelPage;
