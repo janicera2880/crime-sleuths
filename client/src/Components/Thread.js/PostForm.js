@@ -80,7 +80,7 @@ const PostForm = ({ onAddPost }) => {
         <Textarea
         type="text"
         id="content"
-        placeholder="Content"
+        placeholder="Content must be a minimum of 500 words..."
         autoComplete="off"
         value={content}
         onChange={(event) => setContent(event.target.value)}

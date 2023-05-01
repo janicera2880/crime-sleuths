@@ -11,17 +11,19 @@ function Dashboard(){
         <div>
             {/* Display the user's username */}
             {user.username} 's Dashboard
+            
             {/* Display the user's profile image */}
             <br />
             {user.image_url}
             <br />
-           
             <br />
+
             {/* Display the user's bio */}
             Bio:
             <br />
             {user.bio}
             <br />
+            
              {/* Display the user's location */}
             Location:
             <br />

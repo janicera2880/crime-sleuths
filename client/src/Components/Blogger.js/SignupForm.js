@@ -69,6 +69,7 @@ function SignupForm() {
           <Input
             type="text"
             id="username"
+            placeholder="Username"
             autoComplete="off"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -79,6 +80,7 @@ function SignupForm() {
           <Input
             type="password"
             id="password"
+            placeholder="Password is between 8 - 20 characters..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
@@ -89,6 +91,7 @@ function SignupForm() {
           <Input
             type="password"
             id="password_confirmation"
+            placeholder="Confirm Password"
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             autoComplete="current-password"
@@ -99,6 +102,7 @@ function SignupForm() {
           <Input
             type="text"
             id="imageUrl"
+            placeholder="Image Url"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
           />
@@ -106,8 +110,8 @@ function SignupForm() {
         <FormField>
           <Label htmlFor="bio">Bio</Label>
           <Textarea
-            rows="3"
             id="bio"
+            placeholder="Minimum 500 words..."
             value={bio}
             onChange={(e) => setBio(e.target.value)}
           />
@@ -117,6 +121,7 @@ function SignupForm() {
         <Input
           type="text"
           id="location"
+          placeholder="eg. Houston TX"
           autoComplete="off"
           value={location}
           onChange={(e) => setLocation(e.target.value)}

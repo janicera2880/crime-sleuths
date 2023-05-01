@@ -1,14 +1,21 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
 
-function Nametag(){
-    const { user } = useContext(UserContext)
+function Nametag() {
+  // Get user from context
+  const { user } = useContext(UserContext);
 
-    return(
-        <span>
-             <button>Hi, { user.username } !</button>
-        </span>
-    )
+  // Define onClick event handler
+  const handleClick = () => {
+    console.log(`Clicked on button for user ${user.username}`);
+  };
+
+  return (
+    // Render a button with user's username
+    <span>
+      <button onClick={handleClick}>Hi, {user.username}!</button>
+    </span>
+  );
 }
 
 export default Nametag;
