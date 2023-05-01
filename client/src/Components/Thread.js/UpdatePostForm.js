@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function UpdatePostForm ({post, onClickUpdate, updatePost}){
+function UpdatePostForm ({post, updatePost}){
 
+    const [error, setError] = useState([]);
     // initialize state variables
   const [formData, setFormData] = useState({
     "title": post.title,
@@ -19,66 +20,60 @@ function UpdatePostForm ({post, onClickUpdate, updatePost}){
 
 function handleSubmit(event) {
     event.preventDefault();
-    // perform validation on form data here
-    // if validation passes, call function to submit form data
+     // perform validation on form data here
+     if (formData.title.trim() === "" || formData.content.trim() === "") {
+         setError("Title and content are required.");
+        return;
+      }
     const updatedPost = {
       title: formData.title,
       image: formData.image,
       content: formData.content,
     };
-    // call function to submit updated post data
     updatePost(updatedPost);
-    resetForm();
+    setFormData({ ...post, ...updatedPost });
   }
-  function resetForm(){
-    const clearData = {
-        "title": post.title,
-        "image": post.image,
-        "content": ""
-    }
-    setFormData(clearData);
-}
+  
 
 return (
     <div>
-      {/* Add a heading for the form */}
+      {/* Render error message if there is one */}
+      {error && <p style={{color: "red"}}>{error}</p>}
       <h2>Edit Post</h2>
       <form onSubmit={handleSubmit}>
-      <FormField>
-        <Label htmlFor="title">Title</Label>
-        <Input
-        type="text"
-        id="title"
-        value={formData.title}
-        onChange={handleInputChange}
-        />
+        <FormField>
+          <Label htmlFor="title">Title</Label>
+          <Input
+            type="text"
+            id="title"
+            value={formData.title}
+            onChange={handleInputChange}
+          />
         </FormField>
         <FormField>
-        <Label htmlFor="image">Cover Photo</Label>
-        <Input
-        type="text"
-        id="image"
-        value={formData.image}
-        onChange={handleInputChange}
-        />
+          <Label htmlFor="image">Cover Photo</Label>
+          <Input
+            type="text"
+            id="image"
+            value={formData.image}
+            onChange={handleInputChange}
+          />
         </FormField>
         <FormField>
-        <Label htmlFor="content">Content</Label>
-        <Textarea
-        type="text"
-        id="content"
-        value={formData.content}
-        onChange={handleInputChange}
-        />
+          <Label htmlFor="content">Content</Label>
+          <Textarea
+            type="text"
+            id="content"
+            value={formData.content}
+            onChange={handleInputChange}
+          />
         </FormField>
         <FormField>
-        <Button type="submit">Submit</Button>
+          <Button type="submit">Submit</Button>
         </FormField>
-        </form>
-
+      </form>
     </div>
-    );
+  );
 }
-
 
 export default UpdatePostForm;
