@@ -12,6 +12,8 @@ import ChannelsLists from "./Components/Thread/ChannelsLists";
 import ChannelContainer from "./Components/Thread/ChannelContainer";
 import UserPostDetails from "./Components/Thread/UserPostDetails";
 import PostLists from './Components/Thread/PostLists';
+import { PostsContext } from './Context/PostsContext';
+import UserChannelPage from './Components/Thread/UserChannelPage';
 
 
 
@@ -43,6 +45,12 @@ function App() {
     })
   }, []);
 
+  useEffect( ()=>{
+    fetch(`/posts`).then( r => r.json() ).then( (data)=>{
+      setPosts(data);
+    })
+  }, [])
+
   function handleAddChannel(newChannel) {
     setChannels([newChannel, ...channels]);
   }
@@ -56,16 +64,16 @@ function App() {
         <NavBar />
         <Routes>
           {/* Real routes begin here */}
-          <Route path="/user/channels" element={<UserChannelPage />} />
-          <Route path="/user/posts" element={<PostLists />} />
-          <Route path="/posts/:id" element={<UserPostDetails />} />
-          <Route path="/channels/:id" element={<ChannelContainer />} />
-          <Route path="/channels" element={<ChannelsLists />} />
-          <Route path="/updatedashboard" element={<EditDashboard />} />
-          <Route path="/user" element={<Dashboard />} />
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/user" element={<Dashboard />} />
+          <Route path="/updatedashboard" element={<EditDashboard />} />
+          <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
+          <Route path="/channels/:id" element={<ChannelContainer channels={channels} />} />
+          <Route path="/user/posts" element={<PostLists />} />
+          <Route path="/posts/:id" element={<UserPostDetails />} />
+          <Route path="/user/channels" element={<UserChannelPage />} />
         </Routes>
       </div>
     </BrowserRouter>
