@@ -22,9 +22,9 @@ const PostForm = ({ onAddPost }) => {
    
     const post = {
       // Pass in the values of the form fields
-      title: setTitle,
-      image: setImage,
-      content: setContent,
+      title: title,
+      image: image,
+      content: content,
     };
 
     fetch(`/channels/${channelId}/posts`, {

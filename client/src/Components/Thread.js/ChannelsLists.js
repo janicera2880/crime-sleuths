@@ -1,7 +1,7 @@
 import ChannelCard from './ChannelCard';
 import ChannelForm from './ChannelForm';
 
-function ChannelsLists({ onAddChannel }) {
+function ChannelsLists({ channels, onAddChannel }) {
     
 
   const channelCards = channels.map( (channel)=>{

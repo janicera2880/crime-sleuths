@@ -1,6 +1,6 @@
 // Import the necessary dependencies
 import { useState, useContext } from "react";
-import { UserContext } from "./components/context/user";
+import { UserContext } from "../../Context/UserContext";
 import Dashboard from "./Dashboard";
 import { Button, Error, Input, FormField, Label } from "../../styles";
 

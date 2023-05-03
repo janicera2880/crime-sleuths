@@ -4,16 +4,16 @@ import {useContext, useEffect, useState} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Home from './Components/Home';
-import SignupForm from "./Components/Blogger/SignupForm";
-import LoginForm from "./Components/Blogger/LoginForm";
-import Dashboard from "./Components/Blogger/Dashboard";
-import EditDashboard from "./Components/Blogger/EditDashboard";
-import ChannelsLists from "./Components/Thread/ChannelsLists";
-import ChannelContainer from "./Components/Thread/ChannelContainer";
-import UserPostDetails from "./Components/Thread/UserPostDetails";
-import PostLists from './Components/Thread/PostLists';
+import SignupForm from "./Components/Blogger.js/SignupForm";
+import LoginForm from "./Components/Blogger.js/LoginForm";
+import Dashboard from "./Components/Blogger.js/Dashboard";
+import EditDashboard from "./Components/Blogger.js/EditDashboard";
+import ChannelsLists from "./Components/Thread.js/ChannelsLists";
+import ChannelContainer from "./Components/Thread.js/ChannelContainer";
+import UserPostDetails from "./Components/Thread.js/UserPostDetails";
+import PostLists from './Components/Thread.js/PostLists';
 import { PostsContext } from './Context/PostsContext';
-import UserChannelPage from './Components/Thread/UserChannelPage';
+import UserChannelPage from './Components/Thread.js/UserChannelPage';
 
 
 

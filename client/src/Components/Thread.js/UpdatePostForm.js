@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function UpdatePostForm ({post, updatePost}){
 
     const [error, setError] = useState([]);
