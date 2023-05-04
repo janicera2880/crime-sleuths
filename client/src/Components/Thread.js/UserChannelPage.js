@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../Context/UserContext";
+import { UserContext } from "../Context/UserContext";
 
 function UserChannelPage(){
     const { user } = useContext(UserContext);

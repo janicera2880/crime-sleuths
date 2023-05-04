@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import { UserContext } from "../../Context/UserContext";
-import { Button, Error, Input, FormField, Label, Textarea } from "../../styles";
+import { UserContext } from "../Context/UserContext";
+
 
 function SignupForm() {
   
@@ -63,7 +63,7 @@ function SignupForm() {
       {/* Add a heading for the form */}
       <h2>New Account Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <FormField>
+        
           <Label htmlFor="username">Username</Label>
           {/* Update the value and onChange props of the Input fields */}
           <Input
@@ -74,8 +74,7 @@ function SignupForm() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </FormField>
-        <FormField>
+        
           <Label htmlFor="password">Password</Label>
           <Input
             type="password"
@@ -85,8 +84,7 @@ function SignupForm() {
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
           />
-        </FormField>
-        <FormField>
+       
           <Label htmlFor="password_confirmation">Password Confirmation</Label>
           <Input
             type="password"
@@ -96,8 +94,7 @@ function SignupForm() {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             autoComplete="current-password"
           />
-        </FormField>
-        <FormField>
+       
           <Label htmlFor="imageUrl">Profile Image</Label>
           <Input
             type="text"
@@ -106,8 +103,7 @@ function SignupForm() {
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
           />
-        </FormField>
-        <FormField>
+       
           <Label htmlFor="bio">Bio</Label>
           <Textarea
             id="bio"
@@ -115,8 +111,7 @@ function SignupForm() {
             value={bio}
             onChange={(e) => setBio(e.target.value)}
           />
-        </FormField>
-        <FormField>
+       
         <Label htmlFor="location">Location</Label>
         <Input
           type="text"
@@ -126,15 +121,13 @@ function SignupForm() {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />    
-      </FormField>
-      <FormField>
+      
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
-      </FormField>
-      <FormField>
+      
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
-      </FormField>
+     
     </form>
     </div>
   );

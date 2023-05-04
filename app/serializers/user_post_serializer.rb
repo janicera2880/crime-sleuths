@@ -5,3 +5,4 @@ def short_content
     object.content[0...100] + '...'
   end
 end
+

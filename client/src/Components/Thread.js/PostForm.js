@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, Error, FormField, Input, Label, Textarea } from "../../styles";
 
 // The `onAddPost` function is passed down as a prop from the parent component
 const PostForm = ({ onAddPost }) => {
@@ -53,7 +52,7 @@ const PostForm = ({ onAddPost }) => {
       <br />
       <div className="text">Create New Post!</div>  
       <form onSubmit={handleSubmit}>
-      <FormField>
+      
         <Label htmlFor="title">Title</Label>
         <Input
         type="text"
@@ -63,10 +62,9 @@ const PostForm = ({ onAddPost }) => {
         value={title}
         onChange={(event) => setTitle(event.target.value)}
         />
-        </FormField>
-        <FormField>
-        <Label htmlFor="image">Cover Photo</Label>
-        <Input
+        
+        <label htmlFor="image">Cover Photo</label>
+        <input
         type="text"
         id="image"
         placeholder="Image Url"
@@ -74,10 +72,10 @@ const PostForm = ({ onAddPost }) => {
         value={image}
         onChange={(event) => setImage(event.target.value)}
         />
-        </FormField>
-        <FormField>
-        <Label htmlFor="content">Content</Label>
-        <Textarea
+       
+        
+        <label htmlFor="content">Content</label>
+        <textarea
         type="text"
         id="content"
         placeholder="Content must be a minimum of 500 words..."
@@ -85,16 +83,14 @@ const PostForm = ({ onAddPost }) => {
         value={content}
         onChange={(event) => setContent(event.target.value)}
         />
-        </FormField>
-        <FormField>
-        <Button type="submit">Submit</Button>
-        </FormField>
-        <FormField>
+       
+        <button type="submit">Submit</button>
+        
         {errors.map((err) => (
           /* Display any errors returned by the server */
         <Error key={err}>{err}</Error>
         ))}
-        </FormField>
+        
         </form>
       </div>
     );

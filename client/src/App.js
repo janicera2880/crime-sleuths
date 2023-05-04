@@ -1,5 +1,5 @@
 import './App.css';
-import { UserContext } from './Context/UserContext';
+import { UserContext } from './Components/Context/UserContext';
 import {useContext, useEffect, useState} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar";
@@ -12,7 +12,7 @@ import ChannelsLists from "./Components/Thread.js/ChannelsLists";
 import ChannelContainer from "./Components/Thread.js/ChannelContainer";
 import UserPostDetails from "./Components/Thread.js/UserPostDetails";
 import PostLists from './Components/Thread.js/PostLists';
-import { PostsContext } from './Context/PostsContext';
+import { PostsContext } from './Components/Context/PostsContext';
 import UserChannelPage from './Components/Thread.js/UserChannelPage';
 
 

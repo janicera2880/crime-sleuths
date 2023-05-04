@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Error, FormField, Input, Label, Textarea } from "../../styles";
+
 
 const ChannelForm = ({ onAddChannel }) => {
   const [name, setName] = useState("");
@@ -37,7 +37,7 @@ const ChannelForm = ({ onAddChannel }) => {
     <div>
       <div className="text">Create New Channel!</div>
       <form onSubmit={handleSubmit}>
-        <FormField>
+        
           <Label htmlFor="name">Channel Name</Label>
           <Input
             type="text"
@@ -47,9 +47,9 @@ const ChannelForm = ({ onAddChannel }) => {
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
-        </FormField>
+        
 
-        <FormField>
+       
           <Label htmlFor="description">Description</Label>
           <Textarea
             name="description"
@@ -57,15 +57,13 @@ const ChannelForm = ({ onAddChannel }) => {
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
-        </FormField>
-
-        <FormField>
+       
+        
           {/* Render error messages */}
           {errors.map((err) => (
             <Error key={err}>{err}</Error>
           ))}
-        </FormField>
-
+      
         {/* Submit button */}
         <button type="submit">Submit</button>
       </form>

@@ -1,8 +1,7 @@
 // Import the necessary dependencies
 import { useState, useContext } from "react";
-import { UserContext } from "../../Context/UserContext";
+import { UserContext } from "../Context/UserContext";
 import Dashboard from "./Dashboard";
-import { Button, Error, Input, FormField, Label } from "../../styles";
 
 // Create LoginForm functional component
 const LoginForm = () => {
@@ -67,7 +66,7 @@ const LoginForm = () => {
         <Dashboard /> :
         <div>
           <form onSubmit={handleSubmit}>
-            <FormField>
+            
               <Label htmlFor="username">Username</Label>
               <Input
                 type="text"
@@ -76,9 +75,9 @@ const LoginForm = () => {
                 value={values.username}
                 onChange={saveInput}
               />
-            </FormField>
+           
             <br />
-            <FormField>
+            
               <Label htmlFor="password">Password</Label>
               <Input
                 type="password"
@@ -88,17 +87,14 @@ const LoginForm = () => {
                 value={values.password}
                 onChange={saveInput}
               />
-            </FormField>
-            <FormField>
               <Button variant="fill" color="primary" type="submit">
                 {isLoading ? "Loading..." : "Login"}
               </Button>
-            </FormField>
-            <FormField>
+            
               {errors.map((err) => (
                 <Error key={err}>{err}</Error>
               ))}
-            </FormField>
+            
           </form>
         </div>}
     </div>
