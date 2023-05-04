@@ -43,31 +43,31 @@ return (
       <h2>Edit Post</h2>
       <form onSubmit={handleSubmit}>
        
-          <Label htmlFor="title">Title</Label>
-          <Input
+          <label htmlFor="title">Title</label>
+          <input
             type="text"
             id="title"
             value={formData.title}
             onChange={handleInputChange}
           />
       
-          <Label htmlFor="image">Cover Photo</Label>
-          <Input
+          <label htmlFor="image">Cover Photo</label>
+          <input
             type="text"
             id="image"
             value={formData.image}
             onChange={handleInputChange}
           />
        
-          <Label htmlFor="content">Content</Label>
-          <Textarea
+          <label htmlFor="content">Content</label>
+          <textarea
             type="text"
             id="content"
             value={formData.content}
             onChange={handleInputChange}
           />
        
-          <Button type="submit">Submit</Button>
+          <button type="submit">Submit</button>
        
       </form>
     </div>

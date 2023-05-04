@@ -56,9 +56,9 @@ import UpdatePostForm from "./UpdatePostForm";
 
     // Function to render the post components
     const postComponent = () => {
-        if (userPosts === null || userPosts.length < 1) {
+        if (!Array.isArray(userPosts) || userPosts.length < 1) {
             return <span>No Post Found!</span>;
-        }
+          }
         return userPosts.map( post => {
 
             // Function to handle the delete button click

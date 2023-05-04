@@ -42,8 +42,8 @@ const PostForm = ({ onAddPost }) => {
       }
     });
  // Clear the form fields after submission
-    setTitle(""),
-    setImage(""),
+    setTitle("");
+    setImage("");
     setContent("");
   }
 

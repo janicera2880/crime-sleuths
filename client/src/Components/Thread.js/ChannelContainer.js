@@ -15,9 +15,9 @@ const ChannelContainer = ({ channels, onAddPost }) => {
     const renderPosts = showChannel ? showChannel.posts.map((post) => (
       <li key={post.id}>
         <span>
-          <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>
-        </span>{" "}
-        "{post.title}"
+        {post.user?.id && <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>}
+    </span>{" "}
+    "{post.title}"
       </li>
     ))
   : null;
