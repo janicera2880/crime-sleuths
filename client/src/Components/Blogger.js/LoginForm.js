@@ -67,8 +67,8 @@ const LoginForm = () => {
         <div>
           <form onSubmit={handleSubmit}>
             
-              <Label htmlFor="username">Username</Label>
-              <Input
+              <label htmlFor="username">Username</label>
+              <input
                 type="text"
                 name="username"
                 placeholder="Username"
@@ -78,8 +78,8 @@ const LoginForm = () => {
            
             <br />
             
-              <Label htmlFor="password">Password</Label>
-              <Input
+              <label htmlFor="password">Password</label>
+              <input
                 type="password"
                 name="password"
                 autoComplete="on"
@@ -87,12 +87,12 @@ const LoginForm = () => {
                 value={values.password}
                 onChange={saveInput}
               />
-              <Button variant="fill" color="primary" type="submit">
+              <button variant="fill" color="primary" type="submit">
                 {isLoading ? "Loading..." : "Login"}
-              </Button>
+              </button>
             
               {errors.map((err) => (
-                <Error key={err}>{err}</Error>
+                <li key={err}>{err}</li>
               ))}
             
           </form>

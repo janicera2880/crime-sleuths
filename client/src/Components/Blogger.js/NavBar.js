@@ -1,8 +1,8 @@
 import React, { useContext} from "react";
 import { NavLink, Link } from "react-router-dom";
-import { UserContext } from "../../Context/UserContext";
-import Nametag from "./Blogger.js/Nametag";
-import LoginLogoutToggle from "./Blogger.js/LoginLogoutToggle";
+import { UserContext } from "../Context/UserContext";
+import Nametag from "./Nametag";
+import LoginLogoutToggle from "./LoginLogoutToggle";
 
 function NavBar(){
    

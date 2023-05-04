@@ -64,9 +64,9 @@ function SignupForm() {
       <h2>New Account Sign Up</h2>
       <form onSubmit={handleSubmit}>
         
-          <Label htmlFor="username">Username</Label>
+          <label htmlFor="username">Username</label>
           {/* Update the value and onChange props of the Input fields */}
-          <Input
+          <input
             type="text"
             id="username"
             placeholder="Username"
@@ -75,8 +75,8 @@ function SignupForm() {
             onChange={(e) => setUsername(e.target.value)}
           />
         
-          <Label htmlFor="password">Password</Label>
-          <Input
+          <label htmlFor="password">Password</label>
+          <input
             type="password"
             id="password"
             placeholder="Password is between 8 - 20 characters..."
@@ -85,8 +85,8 @@ function SignupForm() {
             autoComplete="current-password"
           />
        
-          <Label htmlFor="password_confirmation">Password Confirmation</Label>
-          <Input
+          <label htmlFor="password_confirmation">Password Confirmation</label>
+          <input
             type="password"
             id="password_confirmation"
             placeholder="Confirm Password"
@@ -95,8 +95,8 @@ function SignupForm() {
             autoComplete="current-password"
           />
        
-          <Label htmlFor="imageUrl">Profile Image</Label>
-          <Input
+          <label htmlFor="imageUrl">Profile Image</label>
+          <input
             type="text"
             id="imageUrl"
             placeholder="Image Url"
@@ -104,16 +104,16 @@ function SignupForm() {
             onChange={(e) => setImageUrl(e.target.value)}
           />
        
-          <Label htmlFor="bio">Bio</Label>
-          <Textarea
+          <label htmlFor="bio">Bio</label>
+          <textarea
             id="bio"
             placeholder="Minimum 500 words..."
             value={bio}
             onChange={(e) => setBio(e.target.value)}
           />
        
-        <Label htmlFor="location">Location</Label>
-        <Input
+        <label htmlFor="location">Location</label>
+        <input
           type="text"
           id="location"
           placeholder="eg. Houston TX"
@@ -122,10 +122,10 @@ function SignupForm() {
           onChange={(e) => setLocation(e.target.value)}
         />    
       
-        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
+        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
       
         {errors.map((err) => (
-          <Error key={err}>{err}</Error>
+          <li key={err}>{err}</li>
         ))}
      
     </form>

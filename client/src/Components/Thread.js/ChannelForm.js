@@ -38,8 +38,8 @@ const ChannelForm = ({ onAddChannel }) => {
       <div className="text">Create New Channel!</div>
       <form onSubmit={handleSubmit}>
         
-          <Label htmlFor="name">Channel Name</Label>
-          <Input
+          <label htmlFor="name">Channel Name</label>
+          <input
             type="text"
             name="name"
             placeholder="name"
@@ -50,8 +50,8 @@ const ChannelForm = ({ onAddChannel }) => {
         
 
        
-          <Label htmlFor="description">Description</Label>
-          <Textarea
+          <label htmlFor="description">Description</label>
+          <textarea
             name="description"
             placeholder="Minimum 200 words..."
             value={description}
@@ -61,7 +61,7 @@ const ChannelForm = ({ onAddChannel }) => {
         
           {/* Render error messages */}
           {errors.map((err) => (
-            <Error key={err}>{err}</Error>
+            <li key={err}>{err}</li>
           ))}
       
         {/* Submit button */}

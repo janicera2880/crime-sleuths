@@ -42,7 +42,7 @@ return (
       {error && <p style={{color: "red"}}>{error}</p>}
       <h2>Edit Post</h2>
       <form onSubmit={handleSubmit}>
-        <FormField>
+       
           <Label htmlFor="title">Title</Label>
           <Input
             type="text"
@@ -50,8 +50,7 @@ return (
             value={formData.title}
             onChange={handleInputChange}
           />
-        </FormField>
-        <FormField>
+      
           <Label htmlFor="image">Cover Photo</Label>
           <Input
             type="text"
@@ -59,8 +58,7 @@ return (
             value={formData.image}
             onChange={handleInputChange}
           />
-        </FormField>
-        <FormField>
+       
           <Label htmlFor="content">Content</Label>
           <Textarea
             type="text"
@@ -68,10 +66,9 @@ return (
             value={formData.content}
             onChange={handleInputChange}
           />
-        </FormField>
-        <FormField>
+       
           <Button type="submit">Submit</Button>
-        </FormField>
+       
       </form>
     </div>
   );

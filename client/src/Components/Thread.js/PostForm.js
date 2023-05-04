@@ -53,8 +53,8 @@ const PostForm = ({ onAddPost }) => {
       <div className="text">Create New Post!</div>  
       <form onSubmit={handleSubmit}>
       
-        <Label htmlFor="title">Title</Label>
-        <Input
+        <label htmlFor="title">Title</label>
+        <input
         type="text"
         id="title"
         placeholder="Title"
@@ -88,7 +88,7 @@ const PostForm = ({ onAddPost }) => {
         
         {errors.map((err) => (
           /* Display any errors returned by the server */
-        <Error key={err}>{err}</Error>
+        <error key={err}>{err}</error>
         ))}
         
         </form>
