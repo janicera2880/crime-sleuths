@@ -33,7 +33,7 @@ a:hover {
   background-color: rgb(209, 170, 43);
 }a {
   color:rgb(90, 86, 72);
-  font-size: 18px;
+  font-size: 16px;
   background-color: rgb(212, 212, 197);
   padding: 8px;
   border-radius: 0px;
@@ -108,4 +108,33 @@ a:hover {
 
 .login-form button[type="submit"]:hover {
   background-color: rgb(224, 201, 129);
+}
+/*Dashboard*/
+.dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #999696;
+  border: 1px solid #ccc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard h4 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.dashboard a {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: rgb(189, 183, 166);
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard a:hover {
+  background-color:rgb(163, 151, 117);
 }

@@ -19,7 +19,7 @@ function NavBar(){
         <div className="navbar">
             <nav>
           
-                { user? <NametagButton /> : <NavLink to="/signup"> Sign Up </NavLink> }
+                { user? <NametagButton /> : <Link to="/signup"> <button> Sign Up </button></Link> }
                 <br />
                 <br />
                 <br />

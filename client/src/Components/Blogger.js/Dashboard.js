@@ -8,32 +8,33 @@ function Dashboard(){
 
     function DashboardView(){
         return(
-        <div>
+        <div class="dashboard">
             {/* Display the user's username */}
-            {user.username} 's Dashboard
+            <h4>{user.username} 's Dashboard</h4>
             
             {/* Display the user's profile image */}
             <br />
-            {user.image_url}
+            <img src={user.image_url} width="200" height="300"alt="Profile Image" />
             <br />
             <br />
 
             {/* Display the user's bio */}
-            Bio:
+            <h3>Bio: </h3>
             <br />
             {user.bio}
             <br />
-            
+            <br />
              {/* Display the user's location */}
-            Location:
+             <h3>Location:</h3>
             <br />
             {user.location}
+            <br />
+            <br />
+            <br />
+            <Link to={"/user/posts"}>My Posts</Link> <Link to={"/user/channels"}>My Channels</Link> <Link to={"/updateuser"}>Edit Profile</Link>
             
-            <Link to={"/user/posts"}>My Posts</Link>
-            <br />
-            <Link to={"/user/channels"}>My Channels</Link>
-            <br />
-            <Link to={"/updateuser"}><button>Edit Info</button></Link>
+            
+            
            
         </div>
         )
