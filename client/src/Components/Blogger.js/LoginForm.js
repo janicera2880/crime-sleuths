@@ -61,7 +61,7 @@ const LoginForm = () => {
 
   // Render the LoginForm component
   return (
-    <div>
+    <div class="login-form">
       {user ?
         <Dashboard /> :
         <div>

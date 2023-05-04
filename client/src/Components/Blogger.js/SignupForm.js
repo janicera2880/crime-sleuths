@@ -59,7 +59,7 @@ function SignupForm() {
   }
 
   return (
-    <div>
+    <div class="login-form">
       {/* Add a heading for the form */}
       <h2>New Account Sign Up</h2>
       <form onSubmit={handleSubmit}>

@@ -18,12 +18,13 @@ function NavBar(){
     return(
         <div className="navbar">
             <nav>
-            <span>
-                { user? <NametagButton /> : <NavLink to="/signup"><button> Sign Up </button></NavLink> }
-                
+          
+                { user? <NametagButton /> : <NavLink to="/signup"> Sign Up </NavLink> }
+                <br />
+                <br />
+                <br />
                 <LoginLogoutToggle />
-            </span>
-            <br />
+         
             <br />
             <br />
             <br />
@@ -33,7 +34,9 @@ function NavBar(){
             <br />
             <br />
             <br />
+            <br />
             <NavLink to="/posts"> Recent Posts</NavLink>
+            <br />
             <br />
             <br />
             <br />
