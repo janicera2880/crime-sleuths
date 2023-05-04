@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show :update]
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"

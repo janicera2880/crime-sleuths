@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :index], raise: false
+   
 
     # GET ALL Users
     def index
@@ -17,11 +17,22 @@ class UsersController < ApplicationController
         render json: @current_user
     end
   
+    def update
+      user = find_user
+      user.update!(update_params)
+      render json: user, status: :accepted
+  rescue ActiveRecord::RecordInvalid => error
+      render json: {errors: error.record.errors}
+  end
     
       private
     
       def user_params
         params.permit(:username, :password, :password_confirmation, :image_url, :bio, :location)
       end
+
+      def find_user
+        User.find(params[:id])
+    end  
     
     end
