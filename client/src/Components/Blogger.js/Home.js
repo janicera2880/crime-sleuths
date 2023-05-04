@@ -8,7 +8,7 @@ function WelcomePage({ username }) {
     <div>   
       <img id="logoImg" src={headerImg} alt="crimesleuthsImg" />
       <h4>
-        HELLO, {username}!
+        Hello, {username}!
       </h4>
       <p>
         Welcome to Crime-Sleuths, a community for people passionate about uncovering the truth about crimes and justice. To ensure that we maintain a safe and respectful environment, we have a few guidelines that we ask all members to follow:
@@ -29,10 +29,11 @@ function WelcomePage({ username }) {
 
 function LoginMessage() {
   return (
-    <p>    
+    <h4>    
       <img id="logoImg" src={headerImg} alt="crimesleuthsImg"/>
-      Please <Link to={"/login"}>Log in to your Account!</Link>
-    </p>
+      <br />
+      <Link to={"/login"}>Join our community by signing in to view more stories.</Link>
+    </h4>
   )
 }
 
@@ -45,8 +46,6 @@ function Home() {
 
   return (
     <div>
-      <h1>Home</h1>
-      <br />
       {message(user)}
     </div>
   )
