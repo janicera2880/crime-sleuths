@@ -8,7 +8,7 @@ function Dashboard(){
 
     function DashboardView(){
         return(
-        <div class="dashboard">
+        <div className="dashboard">
             {/* Display the user's username */}
             <h4>{user.username} 's Dashboard</h4>
             

@@ -6,7 +6,7 @@ import { UserContext } from "../Context/UserContext";
 function WelcomePage({ username }) {
   return (
     <div>   
-      <img id="logoImg" src={headerImg} alt="crimesleuthsImg" />
+      <img id="logoImg" src={headerImg} width="200" height="300" alt="crimesleuthsImg" />
       <h4>
         Hello, {username}!
       </h4>

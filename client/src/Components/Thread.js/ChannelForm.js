@@ -65,7 +65,7 @@ const ChannelForm = ({ onAddChannel }) => {
           ))}
       
         {/* Submit button */}
-        <button type="submit">Submit</button>
+        <button class="primary" type="submit">Submit</button>
       </form>
     </div>
   );

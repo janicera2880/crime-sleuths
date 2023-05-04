@@ -13,7 +13,7 @@ function Nametag() {
   return (
     // Render a button with user's username
     <span>
-      <button onClick={handleClick}>Hi, {user.username}!</button>
+      <button class="primary" onClick={handleClick}>Hi, {user.username}</button>
     </span>
   );
 }

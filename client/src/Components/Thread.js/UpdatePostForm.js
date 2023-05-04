@@ -67,7 +67,7 @@ return (
             onChange={handleInputChange}
           />
        
-          <button type="submit">Submit</button>
+          <button class="primary" type="submit">Submit</button>
        
       </form>
     </div>

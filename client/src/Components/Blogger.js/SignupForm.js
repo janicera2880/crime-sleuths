@@ -122,10 +122,12 @@ function SignupForm() {
           onChange={(e) => setLocation(e.target.value)}
         />    
       
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button class="primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
       
         {errors.map((err) => (
-          <li key={err}>{err}</li>
+          <li style={{ color: "yellow" }} key={err}>
+          {err}
+        </li>
         ))}
      
     </form>

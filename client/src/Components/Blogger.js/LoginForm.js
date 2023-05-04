@@ -61,7 +61,7 @@ const LoginForm = () => {
 
   // Render the LoginForm component
   return (
-    <div class="login-form">
+    <div className="login-form">
       {user ?
         <Dashboard /> :
         <div>
@@ -87,12 +87,14 @@ const LoginForm = () => {
                 value={values.password}
                 onChange={saveInput}
               />
-              <button variant="fill" color="primary" type="submit">
+              <button class="primary" type="submit">
                 {isLoading ? "Loading..." : "Login"}
               </button>
             
               {errors.map((err) => (
-                <li key={err}>{err}</li>
+              <li style={{ color: "yellow" }} key={err}>
+              {err}
+            </li>
               ))}
             
           </form>

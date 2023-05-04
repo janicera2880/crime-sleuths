@@ -84,11 +84,13 @@ const PostForm = ({ onAddPost }) => {
         onChange={(event) => setContent(event.target.value)}
         />
        
-        <button type="submit">Submit</button>
+        <button class="primary" type="submit">Submit</button>
         
         {errors.map((err) => (
           /* Display any errors returned by the server */
-        <error key={err}>{err}</error>
+          <li style={{ color: "yellow" }} key={err}>
+          {err}
+        </li>
         ))}
         
         </form>

@@ -22,7 +22,7 @@ function LoginLogoutToggle(){
         // Return a link to the login page
         return (
             <Link to={"/login"}>
-                <button> Login </button>
+                Login
             </Link>
         )
     }
@@ -30,7 +30,7 @@ function LoginLogoutToggle(){
         // Return a link to the homepage with a logout button
         return (
             <Link to={"/"}>
-                <button onClick={handleLogout}>
+                <button class="secondary" onClick={handleLogout}>
                     Logout
                 </button>
             </Link>

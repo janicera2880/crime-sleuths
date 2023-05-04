@@ -60,7 +60,7 @@ function App() {
     
     <BrowserRouter>
       <div className="App">
-
+      
         <NavBar />
         <Routes>
           {/* Real routes begin here */}

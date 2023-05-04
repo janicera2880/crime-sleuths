@@ -11,14 +11,14 @@ body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-left: 50px; /* Adjust the value to match the width of your navbar */
   margin-right: auto;
-  width: 78%; /* Adjust the value as needed */
+  width: 74%; /* Adjust the value as needed */
 }
 #logoImg {
   width: 600px;
   height: auto;
   margin: 5.5rem;
 }
-/*paragrapghs*/
+
 a {
   color: rgb(226, 212, 169);
   font-size: 18px;
@@ -53,10 +53,13 @@ a:hover {
   position: fixed;
   top: 0;
   right: 0;
-  width: 200px;
+  width: 250px;
   height: 100%;
-  background-color: #333;
-  color: #fff;
+  background-color: #ada9a9;
+  color: #0c0b0b;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 /*Login*/
 
@@ -137,4 +140,50 @@ a:hover {
 
 .dashboard a:hover {
   background-color:rgb(163, 151, 117);
+}
+
+/*Buttons*/
+
+button {
+  display: inline-block;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Primary button styles */
+button.primary {
+  background-color: #999696;
+  color: #fff;
+}
+
+button.primary:hover {
+  background-color: #999696;
+}
+
+/* Secondary button styles */
+button.secondary {
+  background-color: #fff;
+  color: #999696;
+  border: 3px solid #999696;
+}
+
+button.secondary:hover {
+  background-color: #999696;
+  color: #fff;
+}
+
+/* Danger button styles */
+button.danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+button.danger:hover {
+  background-color: #c82333;
 }

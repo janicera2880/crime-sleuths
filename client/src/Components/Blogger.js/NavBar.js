@@ -18,9 +18,12 @@ function NavBar(){
     return(
         <div className="navbar">
             <nav>
-          
-                { user? <NametagButton /> : <Link to="/signup"> <button> Sign Up </button></Link> }
-                <br />
+            <br />
+            <br />
+            <br />
+            <br />
+           
+                { user? <NametagButton /> : <Link to="/signup">Sign Up Here</Link> }
                 <br />
                 <br />
                 <LoginLogoutToggle />
@@ -30,17 +33,15 @@ function NavBar(){
             <br />
             <br />
             <br />
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/"> Home </NavLink>
             <br />
             <br />
             <br />
-            <br />
-            <NavLink to="/posts"> Recent Posts</NavLink>
-            <br />
+            <NavLink to="/posts"> Recent Posts </NavLink>
             <br />
             <br />
             <br />
-            <NavLink to="/channels">All Channels</NavLink>
+            <NavLink to="/channels"> All Channels </NavLink>
           
             
             </nav>
