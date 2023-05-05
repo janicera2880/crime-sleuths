@@ -29,7 +29,7 @@ function App() {
             r.json().then( (data) => setUser(data) );
         }
     });
-  }, []);
+  }, [setUser]);
 
   useEffect( ()=>{
     if (user != null){
@@ -37,7 +37,7 @@ function App() {
         setUserPosts(data);
       })
     }
-  }, [user]);
+  }, [user, setUserPosts]);
 
   useEffect( ()=>{
     fetch("/channels").then( r => r.json() ).then( (data)=>{
@@ -49,7 +49,7 @@ function App() {
     fetch(`/posts`).then( r => r.json() ).then( (data)=>{
       setPosts(data);
     })
-  }, [])
+  }, [setPosts])
 
   function handleAddChannel(newChannel) {
     setChannels([newChannel, ...channels]);

@@ -14,7 +14,7 @@ function Dashboard(){
             
             {/* Display the user's profile image */}
             <br />
-            <img src={user.image_url} width="200" height="300"alt="Profile Image" />
+            <img src={user.image_url} width="200" height="300"alt="Profile" />
             <br />
             <br />
 

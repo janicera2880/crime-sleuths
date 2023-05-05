@@ -37,16 +37,17 @@ import UpdatePostForm from "./UpdatePostForm";
               "Content-Type": "application/json"
             },
             body: JSON.stringify(updatedPost)
-          }).then(r=>r.json()).then(data=>{
+          }).then(r => r.json()).then(data =>{
 
             // Create a new array with the updated post
             const newPostArray = [...userPosts];
-            newPostArray.map(post => {
-                if (post.id === data.id) {
-                    post.title = data.title;
-                    post.image = data.image;
-                    post.content = data.content;
+            newPostArray.map(r => {
+                if (r.post.id === data.id) {
+                    r.title = data.title;
+                    r.image = data.image;
+                    r.content = data.content;
                 }
+                return r; // Add a return statement here
             });
 
             // Update the userPosts context with the new array

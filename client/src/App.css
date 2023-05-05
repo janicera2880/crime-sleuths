@@ -34,6 +34,7 @@ a:hover {
 }a {
   color:rgb(90, 86, 72);
   font-size: 16px;
+  font-weight: bold;
   background-color: rgb(212, 212, 197);
   padding: 8px;
   border-radius: 0px;
@@ -178,12 +179,29 @@ button.secondary:hover {
   color: #fff;
 }
 
-/* Danger button styles */
-button.danger {
-  background-color: #dc3545;
-  color: #fff;
+
+.box {
+  display: grid;
+  flex-direction:column;
+  background-color: #999696;
+  height: 750px;
+  width: 630px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5%;
+  border-radius: 5px;
+  box-shadow: 5px 5px #3d2208;
+  transition: .10s;
 }
 
-button.danger:hover {
-  background-color: #c82333;
+.box h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
 }
+
+.box p {
+  margin-bottom: 20px;
+}
+

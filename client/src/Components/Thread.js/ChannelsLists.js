@@ -11,8 +11,10 @@ function ChannelsLists({ channels, onAddChannel }) {
   
     return (
       <div>
+         {channelCards}
         <ChannelForm onAddChannel={onAddChannel} />
-        {channelCards}      
+        <br />
+        
       </div>  
     )
   }
