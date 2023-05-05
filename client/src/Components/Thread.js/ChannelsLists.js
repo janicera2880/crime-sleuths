@@ -10,7 +10,8 @@ function ChannelsLists({ channels, onAddChannel }) {
 
   
     return (
-      <div>
+      <div className='channels-container'>
+        <div className="channels-wrapper"></div>
          {channelCards}
         <ChannelForm onAddChannel={onAddChannel} />
         <br />

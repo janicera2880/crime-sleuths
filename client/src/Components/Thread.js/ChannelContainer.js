@@ -18,24 +18,28 @@ const ChannelContainer = ({ channels, onAddPost }) => {
         {post.user?.id && <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>}
     </span>{" "}
     "{post.title}"
+    
       </li>
     ))
   : null;
   
     return (
-      <div>
-        {/* render the post form */}
-        <PostForm onAddPost={onAddPost} />
-
+      <div className='post-container'>
+        <div className="post-wrapper"></div>
+        
         {/* render the channel name */}
         <h1>
           Create Post To This Channel
-          <br></br>
+          <br />
+          <br />
+         
           <em>{showChannel ? showChannel.name : ""}</em>
         </h1>
 
         {/* render the list of posts */}
         {renderPosts}
+        {/* render the post form */}
+        <PostForm onAddPost={onAddPost} />
       </div>
     );
   };

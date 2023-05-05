@@ -10,7 +10,7 @@ function ChannelCard({ channel }) {
   /*Render the channel name and description in a div.
    If a user is logged in, render a Link to the channel with the channel name as the text.
   If no user is logged in, just render the channel name as the text.*/
-    <div className="box-lists">
+    <div className="channel-card">
         { user?
          <Link to={`/channels/${channel.id}`}><h4>{ channel.name }</h4></Link>
         :

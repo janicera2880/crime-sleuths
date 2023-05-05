@@ -31,7 +31,7 @@ import UpdatePostForm from "./UpdatePostForm";
 
     // Function to update a post
     function updatePost(updatedPost, postID ){
-        fetch(`/users/${user.id}/reviews/${postID}`,{
+        fetch(`/users/${user.id}/posts/${postID}`,{
             method: "PATCH",
             headers: {
               "Content-Type": "application/json"
@@ -73,7 +73,8 @@ import UpdatePostForm from "./UpdatePostForm";
             } 
         // Render the post with the update form and delete button
             return (
-                <div key={post.id}>
+                
+                <div className='posts-list'key={post.id}>
                     {post.channel.name}
                     <br />
                     {post.title}

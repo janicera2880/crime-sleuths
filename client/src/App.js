@@ -63,12 +63,12 @@ function App() {
       
         <NavBar />
         <Routes>
-          {/* Real routes begin here */}
+          {/* routes begin here */}
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/user" element={<Dashboard />} />
-          <Route path="/updatedashboard" element={<EditDashboard />} />
+          <Route path="/updateuser" element={<EditDashboard />} />
           <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
           <Route path="/channels/:id" element={<ChannelContainer channels={channels} />} />
           <Route path="/user/posts" element={<PostLists />} />

@@ -34,15 +34,14 @@ const ChannelForm = ({ onAddChannel }) => {
   }
 
   return (
-    <div className="login-form">
-      <div >Create New Channel!</div>
+    <div className="channel-form">
       <form onSubmit={handleSubmit}>
         
-          <label htmlFor="name">Channel Name</label>
+          <label htmlFor="name">Channel Name:</label>
           <input
             type="text"
             name="name"
-            placeholder=""
+            placeholder="Choose a unique name for your channel..."
             autoComplete="off"
             value={name}
             onChange={(event) => setName(event.target.value)}
@@ -50,7 +49,7 @@ const ChannelForm = ({ onAddChannel }) => {
         
 
        
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">Description:</label>
           <textarea
             name="description"
             placeholder="Minimum 200 characters..."

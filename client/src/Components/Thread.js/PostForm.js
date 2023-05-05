@@ -48,22 +48,25 @@ const PostForm = ({ onAddPost }) => {
   }
 
   return (
-    <div>
+    <div className="post-form">
       <br />
       <div className="text">Create New Post!</div>  
+      <br />
+      <br />
       <form onSubmit={handleSubmit}>
-      
-        <label htmlFor="title">Title</label>
+      <br />
+      <br />
+        <label htmlFor="title">Title:</label>
         <input
         type="text"
         id="title"
-        placeholder="Title"
         autoComplete="off"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
         />
-        
-        <label htmlFor="image">Cover Photo</label>
+        <br />
+        <br />
+        <label htmlFor="image">Cover Photo:</label>
         <input
         type="text"
         id="image"
@@ -72,13 +75,13 @@ const PostForm = ({ onAddPost }) => {
         value={image}
         onChange={(event) => setImage(event.target.value)}
         />
-       
-        
-        <label htmlFor="content">Content</label>
+       <br />
+      <br />
+        <label htmlFor="content">Content:</label>
         <textarea
         type="text"
         id="content"
-        placeholder="Content must be a minimum of 500 words..."
+        placeholder="Must be a minimum of 500 words..."
         autoComplete="off"
         value={content}
         onChange={(event) => setContent(event.target.value)}

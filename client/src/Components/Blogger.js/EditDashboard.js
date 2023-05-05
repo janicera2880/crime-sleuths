@@ -94,26 +94,34 @@ function EditDashboard(){
     // render the form and the success message
     return(
         <div>
-            Update Info
-            <div>
+             <br />
+            <em>Edit Your Dashboard Info</em>
+            <br />
+            <br /> 
+            <br />
+            <br />
+            <div className="dashboard-form">
                 <form onSubmit={handleSubmitClick}>
-                    Username
+                <label htmlFor="Username">Username:</label>
                     <br />
-                    <input type={"text"} name={"username"} value={updateValues.username} onChange={handleInput} />
+                    <input type={"text"} name={"username"} placeholder={user?.username} value={updateValues.username} onChange={handleInput} />
                     <br />
-                    Profile Image
+                    <label htmlFor="Image">Profile Image:</label>
                     <br />
                     <input type={"text"} name={"image_url"} value={updateValues.image_url} onChange={handleInput} />
                     <br />
-                    Bio
+                    <label htmlFor="bio">Bio:</label>
                     <br />
-                    <input type={"text"} name={"bio"} value={updateValues.bio} onChange={handleInput} />
+                    <input type={"text"} name={"bio"} placeholder={user?.bio} value={updateValues.bio} onChange={handleInput} />
                     <br />
-                    Location
+                    <label htmlFor="location">Location:</label>
                     <br />
-                    <input type={"text"} name={"location"} value={updateValues.location} onChange={handleInput} />
+                    <input type={"text"} name={"location"} placeholder={user?.location} value={updateValues.location} onChange={handleInput} />
                     <br />
-                    <button type="Submit"> Submit </button> or <Link to={"/dashboard"}><button onClick={unsuccessfulMessage}> Back To Dashboard </button></Link>
+                    <button type="Submit"> Submit </button>
+                    <br />
+                    <br />
+                    <Link to={"/dashboard"}><button onClick={unsuccessfulMessage}> Back To Dashboard </button></Link>
                 </form>
                     <br />
                     <br />
