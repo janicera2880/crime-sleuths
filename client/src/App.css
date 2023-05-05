@@ -11,7 +11,7 @@ body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-left: 50px; /* Adjust the value to match the width of your navbar */
   margin-right: auto;
-  width: 74%; /* Adjust the value as needed */
+  width: 115%; /* Adjust the value as needed */
 }
 #logoImg {
   width: 600px;
@@ -37,13 +37,12 @@ a:hover {
   font-weight: bold;
   background-color: rgb(212, 212, 197);
   padding: 8px;
-  border-radius: 0px;
+  border-radius:10px;
   text-decoration: none;
 }
 
 a:hover {
   color: white;
-  background-color: rgb(189, 183, 166);
 }
 
 
@@ -53,14 +52,34 @@ a:hover {
   
   position: fixed;
   top: 0;
-  right: 0;
-  width: 250px;
+  left: 0;
+  width: 275px;
   height: 100%;
   background-color: #312c2c;
   color: #0c0b0b;
   display:flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction:column;
+  align-items:center;
+}
+
+.navbar h5 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d6d4d4;
+  margin-bottom: 20px;
+}
+
+ /* Footer styles */
+ .footer {
+  background-color: #312c2c;
+  color: #dfd5d5;
+  padding: 10px;
+  text-align: center;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1px;
 }
 /*Login*/
 

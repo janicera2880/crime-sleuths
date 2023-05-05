@@ -18,6 +18,7 @@ function NavBar(){
     return(
         <div className="navbar">
             <nav>
+                <h5>Crime | Sleuths&trade;</h5>
             <br />
             <br />
             <br />
@@ -42,7 +43,27 @@ function NavBar(){
             <br />
             <br />
             <NavLink to="/channels"> All Channels </NavLink>
-          
+            <div class="footer">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <p>Follow us on:</p>
+        <a href="https://facebook.com">Facebook</a>
+        <a href="https://twitter.com">Twitter</a>
+        <a href="https://instagram.com">Instagram</a>
+            <p>&copy;2023 CrimeSleuths. All rights reserved.</p>
+            </div>
             
             </nav>
         </div>

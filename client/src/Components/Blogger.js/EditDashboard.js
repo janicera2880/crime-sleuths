@@ -108,7 +108,7 @@ function EditDashboard(){
                     <br />
                     <label htmlFor="Image">Profile Image:</label>
                     <br />
-                    <input type={"text"} name={"image_url"} value={updateValues.image_url} onChange={handleInput} />
+                    <input type={"text"} name={"image_url"} placeholder={user?.image_url} value={updateValues.image_url} onChange={handleInput} />
                     <br />
                     <label htmlFor="bio">Bio:</label>
                     <br />
@@ -121,7 +121,7 @@ function EditDashboard(){
                     <button type="Submit"> Submit </button>
                     <br />
                     <br />
-                    <Link to={"/dashboard"}><button onClick={unsuccessfulMessage}> Back To Dashboard </button></Link>
+                    <Link to={"/user"}><button onClick={unsuccessfulMessage}> Back To Dashboard </button></Link>
                 </form>
                     <br />
                     <br />

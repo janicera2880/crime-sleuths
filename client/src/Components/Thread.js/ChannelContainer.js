@@ -38,6 +38,8 @@ const ChannelContainer = ({ channels, onAddPost }) => {
 
         {/* render the list of posts */}
         {renderPosts}
+        <br />
+        <br />
         {/* render the post form */}
         <PostForm onAddPost={onAddPost} />
       </div>
