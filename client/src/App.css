@@ -135,6 +135,60 @@ a:hover {
 .login-form button[type="submit"]:hover {
   background-color: rgb(224, 201, 129);
 }
+/*Sign Up*/
+
+.signup-form {
+  width: 550px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin-left: 400px;
+ 
+}
+.signup-form h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.signup-form label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.signup-form input {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 35px;
+  font-size: 16px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form button[type="submit"] {
+  display:inline-block;
+  background-color: rgb(189, 183, 166);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button[type="submit"]:hover {
+  background-color: rgb(224, 201, 129);
+}
 
 /*Dashboard*/
 .dashboard {
@@ -343,7 +397,9 @@ button.secondary:hover {
   border-radius: 8px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 95%;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 0px;
 }
 .dashboard-form label {

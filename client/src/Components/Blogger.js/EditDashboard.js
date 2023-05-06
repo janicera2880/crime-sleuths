@@ -95,7 +95,6 @@ function EditDashboard(){
     return(
         <div>
              <br />
-            <em>Edit Your Dashboard Info</em>
             <br />
             <br /> 
             <br />

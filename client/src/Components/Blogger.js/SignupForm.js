@@ -59,9 +59,11 @@ function SignupForm() {
   }
 
   return (
-    <div class="login-form">
+    <div className="signup-form">
       {/* Add a heading for the form */}
-      <h2>New Account Sign Up</h2>
+     
+      <br />
+      <br />
       <form onSubmit={handleSubmit}>
         
           <label htmlFor="username">Username</label>
@@ -125,7 +127,7 @@ function SignupForm() {
         <button class="primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
       
         {errors.map((err) => (
-          <li style={{ color: "yellow" }} key={err}>
+          <li style={{ color: "black" }} key={err}>
           {err}
         </li>
         ))}

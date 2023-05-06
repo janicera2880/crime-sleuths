@@ -1,24 +1,36 @@
 import { useState } from "react";
 
-
 const ChannelForm = ({ onAddChannel }) => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [errors, setErrors] = useState([]);
+  const previousValues = {
+    name: "",
+    description: "",
+    
+  };
+  const [values, setValues] = useState(previousValues);
+  const [errors, setErrors] = useState([]); // Initialize errors state as an empty array
+  
+  const handleInputSave = (e) => {
+    //const name = e.target.name
+    //const value = e.target.value
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+    // console.log(values);
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
-    const channel = {
-      name: name, 
-      description: description,
-    };
+    
 
     fetch("/channels", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(channel),
+      body: JSON.stringify(values),
     }).then((r) => {
       if (r.ok) {
         setErrors([]);
@@ -29,42 +41,39 @@ const ChannelForm = ({ onAddChannel }) => {
     });
 
     // clear the input fields after submission
-    setName("");
-    setDescription("");
+    setValues(previousValues);
   }
 
   return (
     <div className="channel-form">
       <form onSubmit={handleSubmit}>
-        
-          <label htmlFor="name">Channel Name:</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Choose a unique name for your channel..."
-            autoComplete="off"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        
+        <label htmlFor="name">Channel Name:</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Choose a unique name for your channel..."
+          autoComplete="off"
+          value={values.name}
+          onChange={handleInputSave}
+        />
+
+        <label htmlFor="description">Description:</label>
+        <textarea
+          name="description"
+          placeholder="Minimum 200 characters..."
+          value={values.description}
+          onChange={handleInputSave}
+        />
+        {/* Submit button */}
+        <button className="primary" type="submit">Submit</button>
+        {/* Render error messages */}
+        {errors.map((err) => (
+          <li style={{ color: "black" }} key={err}>
+          {err}
+        </li>
+        ))}
 
        
-          <label htmlFor="description">Description:</label>
-          <textarea
-            name="description"
-            placeholder="Minimum 200 characters..."
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
-       
-        
-          {/* Render error messages */}
-          {errors.map((err) => (
-            <li key={err}>{err}</li>
-          ))}
-      
-        {/* Submit button */}
-        <button class="primary" type="submit">Submit</button>
       </form>
     </div>
   );
