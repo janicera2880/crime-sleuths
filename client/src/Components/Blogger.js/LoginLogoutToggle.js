@@ -22,7 +22,7 @@ function LoginLogoutToggle(){
         // Return a link to the login page
         return (
             <Link to={"/login"}>
-                Login
+                Account Login
             </Link>
         )
     }

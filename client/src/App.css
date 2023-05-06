@@ -22,7 +22,7 @@ body {
 a {
   color: rgb(226, 212, 169);
   font-size: 18px;
-  background-color: rgb(14, 14, 10);
+  background-color: rgb(94, 94, 87);
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;
@@ -30,12 +30,12 @@ a {
 /*Links*/
 a:hover {
   color: white;
-  background-color: rgb(209, 170, 43);
+  background-color: rgb(231, 231, 229);
 }a {
   color:rgb(90, 86, 72);
   font-size: 16px;
   font-weight: bold;
-  background-color: rgb(212, 212, 197);
+  background-color: rgb(218, 218, 218);
   padding: 8px;
   border-radius:10px;
   text-decoration: none;
@@ -191,15 +191,11 @@ button.primary:hover {
 }
 
 /* Secondary button styles */
-button.secondary {
-  background-color: #fff;
-  color: #999696;
-  border: 3px solid #999696;
-}
+
 
 button.secondary:hover {
   background-color: #999696;
-  color: #fff;
+  color: #f0dcdc;
 }
 
 
@@ -230,12 +226,12 @@ button.secondary:hover {
 
 .channels-container {
   background-color:#999898;
-  padding: 10px;
+  padding: 5px;
 }
 
 .channels-wrapper {
-  display:grid;
-  flex-wrap: wrap;
+  display:contents;
+  flex-wrap:wrap;
   justify-content: space-between;
 }
 
@@ -244,12 +240,14 @@ button.secondary:hover {
   border-radius: 5px;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  width: 95%;
-  margin-bottom: 20px;
+  width: 65%;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .channel-card:hover {
-  box-shadow: 0px 0px 1px rgba(165, 159, 159, 0.3);
+  box-shadow: 0px 0px 2px rgba(165, 159, 159, 0.3);
 }
 
 .channel-card h2 {
@@ -258,7 +256,7 @@ button.secondary:hover {
 }
 
 .channel-card p {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -267,7 +265,9 @@ button.secondary:hover {
   border-radius: 8px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 93%;
+  width: 63%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 0px;
 }
 .channel-form label {
@@ -278,7 +278,7 @@ button.secondary:hover {
   margin-bottom: 5px;
 }
 .channel-form input[type="text"] {
-  width: 90%;
+  width: 50%;
   padding: 10px;
   border-radius: 4px;
   border: none;

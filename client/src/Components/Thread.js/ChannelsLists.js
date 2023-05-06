@@ -1,5 +1,6 @@
 import ChannelCard from './ChannelCard';
 import ChannelForm from './ChannelForm';
+import channelImg from "../Images/channellogo.png";
 
 function ChannelsLists({ channels, onAddChannel }) {
     
@@ -11,10 +12,15 @@ function ChannelsLists({ channels, onAddChannel }) {
   
     return (
       <div className='channels-container'>
-        <div className="channels-wrapper"></div>
-         {channelCards}
-        <ChannelForm onAddChannel={onAddChannel} />
+        <img id="channellogo" src={channelImg} width="600" height="400" alt="channellogo"/> 
         <br />
+        <br />
+        <br />
+          <div className="channels-wrapper"></div>
+          {channelCards}
+          <br />
+          <ChannelForm onAddChannel={onAddChannel} />
+          <br />
         
       </div>  
     )

@@ -1,7 +1,8 @@
 // Import the necessary dependencies
 import { useState, useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import Dashboard from "./Dashboard";
+//import Dashboard from "./Dashboard";
+import { useNavigate } from "react-router-dom";
 
 // Create LoginForm functional component
 const LoginForm = () => {
@@ -18,7 +19,8 @@ const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Get the user and setUser from the context
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   // Create a function to save the input value
   const saveInput = (e) => {
@@ -49,6 +51,7 @@ const LoginForm = () => {
         setErrors([]);
         r.json().then((user) => {
           setUser(user);
+          navigate("/channels")
         });
       } else {
         r.json().then((err) => setErrors(err.error));
@@ -62,8 +65,7 @@ const LoginForm = () => {
   // Render the LoginForm component
   return (
     <div className="login-form">
-      {user ?
-        <Dashboard /> :
+      
         <div>
           <form onSubmit={handleSubmit}>
             
@@ -98,7 +100,7 @@ const LoginForm = () => {
               ))}
             
           </form>
-        </div>}
+        </div>
     </div>
   );
 };

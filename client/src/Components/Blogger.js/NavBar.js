@@ -20,6 +20,7 @@ function NavBar(){
             <nav>
                 <h5>Crime | Sleuths&trade;</h5>
             <br />
+            <LoginLogoutToggle />
             <br />
             <br />
             <br />
@@ -27,14 +28,14 @@ function NavBar(){
                 { user? <NametagButton /> : <Link to="/signup">Sign Up Here</Link> }
                 <br />
                 <br />
-                <LoginLogoutToggle />
+                
          
             <br />
             <br />
             <br />
             <br />
             <br />
-            <NavLink to="/"> Home </NavLink>
+            <NavLink to="/"> Homepage</NavLink>
             <br />
             <br />
             <br />
