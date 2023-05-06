@@ -51,7 +51,7 @@ const LoginForm = () => {
         setErrors([]);
         r.json().then((user) => {
           setUser(user);
-          navigate("/channels")
+          navigate("/")
         });
       } else {
         r.json().then((err) => setErrors(err.error));
