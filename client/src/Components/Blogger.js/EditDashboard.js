@@ -7,7 +7,6 @@ function EditDashboard(){
     //set the initial state for updating user info
     const [ updateValues, setUpdateValues ] = useState({
         "username": "",
-        "image_url": "",
         "bio": "",
         "location": "",
         "id":""
@@ -39,14 +38,13 @@ function EditDashboard(){
         if(userData.username === ""){
             userData.username = user.username;
         }
-        if(userData.image_url === ""){
-            userData.image_url = user.image_url;
-        }
         if(userData.location === ""){
             userData.location = user.location;
         }
         // send a PATCH request to update user info
         changeUpdate(userData);
+        // update user data with the new data
+        setUser(userData);
         // clear the form and set the success message to true
         clearForm();
     }
@@ -57,11 +55,18 @@ function EditDashboard(){
             headers: {
             "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
-        }).then(r => r.json() ).then(data=>{
-            // update user data with the new data
-            setUser(data);
+            body: JSON.stringify(data),
         })
+        .then((r) => r.json())
+        .then((data) => {
+        // update user data with the new data
+        setUser(data);
+        })
+
+        .catch((error) => {
+        // handle the error, e.g., display an error message to the user
+        console.error("Error updating user info:", error);
+        });
     }
     // clear the form and set the success message to true
     function clearForm(){
@@ -94,7 +99,7 @@ function EditDashboard(){
     // render the form and the success message
     return(
         <div>
-             <br />
+            <br />
             <br />
             <br /> 
             <br />
@@ -103,19 +108,15 @@ function EditDashboard(){
                 <form onSubmit={handleSubmitClick}>
                 <label htmlFor="Username">Username:</label>
                     <br />
-                    <input type={"text"} name={"username"} placeholder={user?.username} value={updateValues.username} onChange={handleInput} />
-                    <br />
-                    <label htmlFor="Image">Profile Image:</label>
-                    <br />
-                    <input type={"text"} name={"image_url"} placeholder={user?.image_url} value={updateValues.image_url} onChange={handleInput} />
+                    <input type={"text"} name={"username"} placeholder={user?.username || ""} value={updateValues.username} onChange={handleInput} />
                     <br />
                     <label htmlFor="bio">Bio:</label>
                     <br />
-                    <input type={"text"} name={"bio"} placeholder={user?.bio} value={updateValues.bio} onChange={handleInput} />
+                    <input type={"text"} name={"bio"} placeholder={user?.bio || ""} value={updateValues.bio} onChange={handleInput} />
                     <br />
                     <label htmlFor="location">Location:</label>
                     <br />
-                    <input type={"text"} name={"location"} placeholder={user?.location} value={updateValues.location} onChange={handleInput} />
+                    <input type={"text"} name={"location"} placeholder={user?.location || ""} value={updateValues.location} onChange={handleInput} />
                     <br />
                     <button type="Submit"> Submit </button>
                     <br />

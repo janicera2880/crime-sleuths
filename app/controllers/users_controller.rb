@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:create, :index]
+  #skip_before_action :authorize, only: [:create, :index]
 
 
     # GET ALL Users
@@ -10,9 +10,13 @@ class UsersController < ApplicationController
 
     def show
       user = find_user
-      render json: user, status: :ok
-    rescue ActiveRecord::RecordNotFound
-      render json: { error: 'User not found' }, status: :not_found
+      if user
+        render json: user, status: :ok
+      else
+        render json: {error: "Not logged in"}, status: :unauthorized
+      end
+      rescue ActiveRecord::RecordNotFound
+        render json: {error: "User Not Found"}, status: :not_found
     end
       
     def create

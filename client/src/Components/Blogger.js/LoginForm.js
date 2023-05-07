@@ -1,7 +1,6 @@
 // Import the necessary dependencies
 import { useState, useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-//import Dashboard from "./Dashboard";
 import { useNavigate } from "react-router-dom";
 
 // Create LoginForm functional component
@@ -56,6 +55,10 @@ const LoginForm = () => {
       } else {
         r.json().then((err) => setErrors(err.error));
       }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setIsLoading(false);
     });
 
     // Reset the input values
@@ -64,46 +67,39 @@ const LoginForm = () => {
 
   // Render the LoginForm component
   return (
-    <div className="login-form">
+  <div className="login-form">
       
-        <div>
-          <form onSubmit={handleSubmit}>
-            
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                value={values.username}
-                onChange={saveInput}
-              />
-           
-            <br />
-            
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                autoComplete="on"
-                placeholder="Password"
-                value={values.password}
-                onChange={saveInput}
-              />
-              <button class="primary" type="submit">
-                {isLoading ? "Loading..." : "Login"}
-              </button>
-            
-              {errors.map((err) => (
-              <li style={{ color: "yellow" }} key={err}>
-              {err}
-            </li>
-              ))}
-            
-          </form>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={values.username}
+            onChange={saveInput}
+          />
+          <br />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            autoComplete="on"
+            placeholder="Password"
+            value={values.password}
+            onChange={saveInput}
+          />
+          <button className="primary" type="submit">
+            {isLoading ? "Loading..." : "Login"}
+          </button>
+          {errors.map((err, index) => (
+          <li style={{ color: "black" }} key={index}>
+            {err}
+          </li>
+        ))}
+      </form>
     </div>
   );
-};
+}
 
-// Export the LoginForm component
+
 export default LoginForm;

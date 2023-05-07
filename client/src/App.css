@@ -135,6 +135,12 @@ a:hover {
 .login-form button[type="submit"]:hover {
   background-color: rgb(224, 201, 129);
 }
+
+.error-list {
+  color: red;
+  list-style-type: disc;
+  margin-left: 20px;
+}
 /*Sign Up*/
 
 .signup-form {
