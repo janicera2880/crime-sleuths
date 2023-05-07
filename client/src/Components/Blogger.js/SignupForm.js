@@ -2,68 +2,65 @@ import { useState, useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import { useNavigate } from "react-router-dom";
 
-function SignupForm() {
+const SignupForm = ({ setAddSignup }) => {
   
-  //Define separate state variables for each form field
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [bio, setBio] = useState("");
-  const [location, setLocation] = useState("");
+  const previousValues = {
+    username: "",
+    password: "",
+    password_confirmation: "",
+    image_url: "",
+    bio: "",
+    location: "",
+  };
 
+  const [values, setValues] = useState(previousValues);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
+  const handleInputSave = (e) => {
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+    // console.log(values);
+  };
   
   function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    // Update the API endpoint with the new field names
+
+    // Update the API endpoint with the new field input
     fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        user: {
-          username,
-          password,
-          password_confirmation: passwordConfirmation,
-          image_url: imageUrl,
-          bio,
-          location
-        }
-      }),
+      body: JSON.stringify(values),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
+        setAddSignup(false);
         r.json().then((user) => {
           setUser(user);
-          resetForm();
           navigate("/");
         });
       } else {
+       
         r.json().then((err) => setErrors(err.errors));
       }
     });
-  }
 
-  function resetForm() {
-    setUsername("");
-    setPassword("");
-    setPasswordConfirmation("");
-    setImageUrl("");
-    setBio("");
-    setLocation("");
+    setValues(previousValues);
   }
 
   return (
     <div className="signup-form">
-      {/* Add a heading for the form */}
+    
      
       <br />
       <br />
@@ -73,58 +70,60 @@ function SignupForm() {
           {/* Update the value and onChange props of the Input fields */}
           <input
             type="text"
-            id="username"
+            name="username"
             placeholder="Username"
             autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={values.username}
+            onChange={handleInputSave}
           />
         
           <label htmlFor="password">Password</label>
           <input
             type="password"
-            id="password"
+            name="password"
             placeholder="Password is between 8 - 20 characters..."
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
+            autoComplete="off"
+            value={values.password}
+            onChange={handleInputSave}
           />
        
           <label htmlFor="password_confirmation">Password Confirmation</label>
           <input
             type="password"
-            id="password_confirmation"
+            name="password_confirmation"
             placeholder="Confirm Password"
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-            autoComplete="current-password"
+            autoComplete="off"
+            value={values.password_confirmation}
+            onChange={handleInputSave}
           />
        
           <label htmlFor="imageUrl">Profile Image</label>
           <input
             type="text"
-            id="imageUrl"
+            name="image_url"
             placeholder="Image Url"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
+            autoComplete="off"
+            value={values.image_url}
+            onChange={handleInputSave}
           />
        
           <label htmlFor="bio">Bio</label>
           <textarea
-            id="bio"
+            name="bio"
             placeholder="Minimum 500 words..."
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
+            autoComplete="off"
+            value={values.bio}
+            onChange={handleInputSave}
           />
        
         <label htmlFor="location">Location</label>
         <input
           type="text"
-          id="location"
+          name="location"
           placeholder="eg. Houston TX"
           autoComplete="off"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          value={values.location}
+          onChange={handleInputSave}
         />    
       
         <button class="primary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>

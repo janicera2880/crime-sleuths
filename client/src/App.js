@@ -21,7 +21,7 @@ function App() {
   const { user, setUser } = useContext(UserContext);
   const { setPosts, setUserPosts } = useContext(PostsContext);
   const [channels, setChannels] = useState([]);
-
+  
 
   useEffect( ()=>{
     fetch("/me").then( (r) => {
