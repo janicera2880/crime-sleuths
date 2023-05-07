@@ -138,7 +138,7 @@ a:hover {
 /*Sign Up*/
 
 .signup-form {
-  width: 550px;
+  width: 400px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
@@ -146,7 +146,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
   margin-left: 400px;
  
 }
@@ -293,8 +293,8 @@ button.secondary:hover {
   background-color: #d6d4d4;
   border-radius: 5px;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  width: 65%;
+  padding: 15px;
+  width: 60%;
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -319,7 +319,7 @@ button.secondary:hover {
   border-radius: 8px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 63%;
+  width: 58%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0px;
@@ -332,12 +332,13 @@ button.secondary:hover {
   margin-bottom: 5px;
 }
 .channel-form input[type="text"] {
-  width: 50%;
+  width: 70%;
   padding: 10px;
-  border-radius: 4px;
   border: none;
-  margin-bottom: 10px;
-  font-size: 14px;
+  border-radius: 5px;
+  margin-bottom: 35px;
+  font-size: 16px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .channel-form input[type="submit"] {
@@ -355,11 +356,13 @@ button.secondary:hover {
 }
 
 .post-form {
-  background-color: #7e7b7b;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  width: 95%;
+  box-shadow: 0px 0px 8px rgba(37, 33, 33, 0.2);
+  padding: 10px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 0px;
 }
 .post-form label {
@@ -372,10 +375,11 @@ button.secondary:hover {
 .post-form input[type="text"] {
   width: 90%;
   padding: 10px;
-  border-radius: 4px;
   border: none;
-  margin-bottom: 10px;
-  font-size: 14px;
+  border-radius: 5px;
+  margin-bottom: 35px;
+  font-size: 16px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .post-form input[type="submit"] {
@@ -390,6 +394,11 @@ button.secondary:hover {
 
 .post-form input[type="submit"]:hover {
   background-color: #006080;
+}
+.formtext{
+  font-size: 16px;
+  font-weight: bold;
+
 }
 
 .dashboard-form {

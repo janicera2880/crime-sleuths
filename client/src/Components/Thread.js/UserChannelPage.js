@@ -19,10 +19,7 @@ function UserChannelPage(){
                     <p>{channel.description}</p>
                     <br />
                     <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    
                 </div>
             )
         });
@@ -34,11 +31,9 @@ function UserChannelPage(){
         <div className="box">
             <h2>{user ? `${user.username}'s Channels` : 'Loading...'}</h2>
             <br />
-            <br />
+           
             {myChannel}
-            <Link to={"/channels"}>Create New Channel</Link>
-            <br />
-            <Link to={"/user"}> Back To Dashboard</Link>
+            <Link to={"/channels"}>Create New Channel</Link><br /><Link to={"/user"}> Back To Dashboard</Link>
             <br />
         </div>
     );

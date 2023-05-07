@@ -1,49 +1,45 @@
-import PostForm from "./PostForm";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
+import PostForm from "./PostForm";
 
 const ChannelContainer = ({ channels, onAddPost }) => {
-    // console.log(channels);
-    
-    // get the channel ID from the URL parameters
-    const params = useParams();
-    // console.log({ id });
-  
-    // find the channel object that matches the ID
-    const showChannel = channels.find(channel => channel.id === parseInt(params.id)) || null;
+  const params = useParams();
+  const showChannel = channels.find(
+    (channel) => channel.id === parseInt(params.id)
+  ) || null;
 
-   // if the channel exists, render the list of posts
-    const renderPosts = showChannel ? showChannel.posts.map((post) => (
+  const renderPosts =
+    showChannel &&
+    showChannel.posts.map((post) => (
       <li key={post.id}>
         <span>
-        {post.user?.id && <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>}
-    </span>{" "}
-    "{post.title}"
-    
+          {post.user?.id && (
+            <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>
+          )}
+        </span>{" "}
+        <strong>{post.title}</strong> - {post.image && <img src={post.image} alt="Post" />} 
+        {post.content}
       </li>
-    ))
-  : null;
-  
-    return (
-      <div className='post-container'>
-        <div className="post-wrapper"></div>
-        
-        {/* render the channel name */}
-        <h1>
-          Create Post To This Channel
-          <br />
-          <br />
-         
-          <em>{showChannel ? showChannel.name : ""}</em>
-        </h1>
+    ));
 
-        {/* render the list of posts */}
-        {renderPosts}
+  return (
+    <div className="mypost-container">
+      <div className="mypost-wrapper"></div>
+
+      <h1>
+        Create Post To This Channel
         <br />
         <br />
-        {/* render the post form */}
-        <PostForm onAddPost={onAddPost} />
-      </div>
-    );
-  };
-  
-  export default ChannelContainer;
+        <em>{showChannel ? showChannel.name : ""}</em>
+      </h1>
+
+      {renderPosts}
+      <br />
+      <br />
+
+      <PostForm onAddPost={onAddPost} />
+    </div>
+  );
+};
+
+export default ChannelContainer;

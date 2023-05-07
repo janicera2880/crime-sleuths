@@ -50,7 +50,7 @@ const PostForm = ({ onAddPost }) => {
   return (
     <div className="post-form">
       <br />
-      <div className="text">Create New Post!</div>  
+      <div className="formtext">Create New Post!</div>  
       <br />
       <br />
       <form onSubmit={handleSubmit}>
@@ -60,6 +60,7 @@ const PostForm = ({ onAddPost }) => {
         <input
         type="text"
         id="title"
+        placeholder="Title"
         autoComplete="off"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
