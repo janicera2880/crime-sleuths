@@ -28,15 +28,12 @@ class UsersController < ApplicationController
       
     def update
       user = find_user
-      if user.update(update_params)
-        render json: user, status: :ok
-      else
-        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-      end
-    rescue ActiveRecord::RecordNotFound
-      render json: { error: 'User not found' }, status: :not_found
-    end
-    
+      user.update!(update_params)
+      render json: user, status: :accepted
+    rescue ActiveRecord::RecordInvalid => error
+      render json: {errors: error.record.errors}
+  end
+
       private
     
       def user_params
@@ -45,6 +42,9 @@ class UsersController < ApplicationController
 
       def find_user
         User.find(params[:id])
+      end
+      def update_params
+        params.permit(:username, :image_url, :location, :bio)
       end  
     
-    end
+  end
