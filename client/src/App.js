@@ -31,6 +31,7 @@ function App() {
     });
   }, [setUser]);
 
+
   useEffect( ()=>{
     if (user != null){
       fetch(`/users/${user.id}/posts`).then(r=>r.json()).then(data=>{

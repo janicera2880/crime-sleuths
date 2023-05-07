@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     def show
-      user = User.find(params[:id])
+      user = find_user
       render json: user, status: :ok
     rescue ActiveRecord::RecordNotFound
       render json: { error: 'User not found' }, status: :not_found
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         User.find(params[:id])
       end
       def update_params
-        params.permit(:username, :image_url, :location, :bio)
+        params.permit(:username, :location, :bio)
       end  
     
   end
