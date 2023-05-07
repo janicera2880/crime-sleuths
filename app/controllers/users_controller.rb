@@ -9,15 +9,14 @@ class UsersController < ApplicationController
     end
 
     def show
+      #byebug
       user = find_user
-      if user
-        render json: user, status: :ok
-      else
-        render json: {error: "Not logged in"}, status: :unauthorized
-      end
-      rescue ActiveRecord::RecordNotFound
-        render json: {error: "User Not Found"}, status: :not_found
+    if user
+      render json: user, status: :ok
+    else
+      render json: { error: "User Not Found" }, status: :not_found
     end
+  end
       
     def create
         user = User.create!(user_params)
