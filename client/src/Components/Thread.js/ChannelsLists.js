@@ -1,6 +1,6 @@
 import ChannelCard from './ChannelCard';
 import ChannelForm from './ChannelForm';
-import channelImg from "../Images/channellogo.png";
+import channelImg from "../Images/channellogo.jpeg";
 
 function ChannelsLists({ channels, onAddChannel }) {
     

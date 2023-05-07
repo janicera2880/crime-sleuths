@@ -17,7 +17,7 @@ const ChannelContainer = ({ channels, onAddPost }) => {
             <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>
           )}
         </span>{" "}
-        <strong>{post.title}</strong> - {post.image && <img src={post.image} alt="Post" />} 
+        <strong>{post.title}</strong> - {post.image && <img src={post.image} width="400" height="400" alt="Post" />} 
         {post.content}
       </li>
     ));
@@ -26,13 +26,12 @@ const ChannelContainer = ({ channels, onAddPost }) => {
     <div className="mypost-container">
       <div className="mypost-wrapper"></div>
 
-      <h1>
-        Create Post To This Channel
-        <br />
-        <br />
-        <em>{showChannel ? showChannel.name : ""}</em>
-      </h1>
-
+      <h3>
+        <em> Channel : {showChannel ? showChannel.name : ""}</em>
+      </h3>
+      <br />
+      <br />
+      <h4> Recent Posts:</h4>
       {renderPosts}
       <br />
       <br />

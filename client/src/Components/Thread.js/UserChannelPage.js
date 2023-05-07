@@ -19,7 +19,11 @@ function UserChannelPage(){
                     <p>{channel.description}</p>
                     <br />
                     <br />
-                    
+                    _______________________________
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 </div>
             )
         });
@@ -33,7 +37,7 @@ function UserChannelPage(){
             <br />
            
             {myChannel}
-            <Link to={"/channels"}>Create New Channel</Link><br /><Link to={"/user"}> Back To Dashboard</Link>
+            <Link to={"/channels"}>Create New Channel</Link><br /><Link to={"/user"}> {user.username}'s Dashboard</Link>
             <br />
         </div>
     );

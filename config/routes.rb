@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   resources :channels, only: [:index, :show, :create] do
     # Nested resource for posts
     # By adding the do...end we can pass it a block of its nested routes.
+    resources :posts, only: [:show, :index]
+  end
+
+  resources :users, only: [:index, :show, :update] do
     resources :posts
   end
 
-  resources :users, only: [:index, :show, :update]
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"

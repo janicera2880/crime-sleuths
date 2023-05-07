@@ -256,7 +256,7 @@ button.secondary:hover {
 .box {
   display: grid;
   flex-direction:column;
-  background-color: #999696;
+  background-color: #dfd5d5;
   height: 750px;
   width: 630px;
   justify-content: center;
@@ -313,7 +313,7 @@ button.secondary:hover {
   font-size: 18px;
   margin: 0;
 }
-
+/*Add New Channel*/
 .channel-form {
   background-color: #fff;
   border-radius: 8px;
@@ -355,6 +355,48 @@ button.secondary:hover {
   background-color: #006080;
 }
 
+
+.post-component {
+  display: grid;
+  flex-direction:column;
+  background-color: #b8afaf;
+  height: 2500px;
+  width: 850px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5%;
+  border-radius: 5px;
+  box-shadow: 5px 5px #3d2208;
+  transition: .10s;
+}
+
+.posts-list {
+  border: 5px solid #5a5151;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.posts-list img {
+  max-width: 400px;
+  max-height: 300px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.posts-list button {
+  background-color: #8f8786;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.posts-list button:hover {
+  background-color: #857777;
+}
 .post-form {
   background-color: #fff;
   border-radius: 8px;

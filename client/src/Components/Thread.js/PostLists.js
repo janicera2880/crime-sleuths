@@ -79,11 +79,10 @@ import UpdatePostForm from "./UpdatePostForm";
                     <br />
                     {post.title}
                     <br />
-                    {post.image}
+                    <img src={post.image} width="400" height="300" alt="Post" />
                     <br />
                     {post.content}
                     <br />
-                    Edit Post
                     <br />
                     <UpdatePostForm post={post} updatePost={handleUpdate} />
                     <br />
@@ -96,11 +95,11 @@ import UpdatePostForm from "./UpdatePostForm";
     };
     // Render the PostList component with the user's posts and dashboard link
     return(
-        <div>
-            <h2>{user.username}'s Posts</h2>
-            <br />
-            <Link to={"/user"}>Dashboard</Link>
+        <div className="post-component">
+    
             {postComponent()}
+
+            <Link to={"/user"}>Back To Dashboard</Link>
         </div>
     );
 }

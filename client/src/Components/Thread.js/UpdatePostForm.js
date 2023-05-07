@@ -7,7 +7,6 @@ function UpdatePostForm ({post, updatePost}){
     // initialize state variables
   const [formData, setFormData] = useState({
     "title": post.title,
-    "image": post.image,
     "content": "",
   })
 
@@ -28,7 +27,6 @@ function handleSubmit(event) {
       }
     const updatedPost = {
       title: formData.title,
-      image: formData.image,
       content: formData.content,
     };
     updatePost(updatedPost);
@@ -37,38 +35,33 @@ function handleSubmit(event) {
   
 
 return (
-    <div>
-      {/* Render error message if there is one */}
-      {error && <p style={{color: "red"}}>{error}</p>}
-      <h2>Edit Post</h2>
+    <div classsName="edit-form">
+      
+      <h4>Edit Post Here</h4>
       <form onSubmit={handleSubmit}>
        
-          <label htmlFor="title">Title</label>
+          <h5>Title :</h5>
           <input
             type="text"
             id="title"
             value={formData.title}
             onChange={handleInputChange}
+            style={{ width: "80%", padding: "3px", marginBottom: "20px"}}
           />
-      
-          <label htmlFor="image">Cover Photo</label>
-          <input
-            type="text"
-            id="image"
-            value={formData.image}
-            onChange={handleInputChange}
-          />
-       
-          <label htmlFor="content">Content</label>
+          <br />
+          <br />
+          <h5>Content :</h5>
           <textarea
             type="text"
             id="content"
             value={formData.content}
             onChange={handleInputChange}
           />
-       
+          <br />
+          <br />
           <button class="primary" type="submit">Submit</button>
-       
+       {/* Render error message if there is one */}
+      {error && <p style={{color: "black"}}>{error}</p>}
       </form>
     </div>
   );
