@@ -7,24 +7,35 @@ class UsersController < ApplicationController
         users = User.all
         render json: users
     end
+
+    def show
+      user = User.find(params[:id])
+      render json: user, status: :ok
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: 'User not found' }, status: :not_found
+    end
       
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
-        render json: user, status: :created
-    end
+        if user.valid?
+          render json: user, status: :created
+        else
+          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
     
-    def show
-        render json: @current_user
-    end
-  
+      
     def update
       user = find_user
-      user.update!(update_params)
-      render json: user, status: :accepted
-  rescue ActiveRecord::RecordInvalid => error
-      render json: {errors: error.record.errors}
-  end
+      if user.update(update_params)
+        render json: user, status: :ok
+      else
+        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      end
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: 'User not found' }, status: :not_found
+    end
     
       private
     
@@ -34,6 +45,6 @@ class UsersController < ApplicationController
 
       def find_user
         User.find(params[:id])
-    end  
+      end  
     
     end
