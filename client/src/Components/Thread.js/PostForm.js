@@ -57,7 +57,7 @@ fetch(`/channels/${channelId}/posts`, {
   return (
     <div className="post-form">
       <br />
-      <div className="formtext">Create New Post!</div>
+      <div className="formtext">Start A Thread On This Channel!</div>
       <br />
       <br />
       <form onSubmit={handleSubmit}>

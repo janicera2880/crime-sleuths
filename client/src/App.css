@@ -9,10 +9,11 @@ body {
   font-style: oblique;
   font-weight: lighter;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-left: 50px; /* Adjust the value to match the width of your navbar */
   margin-right: auto;
-  width: 115%; /* Adjust the value as needed */
+  width: 180%;
+  max-width: 1530px; /* Adjust the value as needed */
 }
+
 #logoImg {
   width: 600px;
   height: auto;
