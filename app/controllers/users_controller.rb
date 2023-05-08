@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #skip_before_action :authorize, only: [:create, :index]
+  skip_before_action :authorize, only: [:create, :index, :update]
 
 
     # GET ALL Users
@@ -29,13 +29,14 @@ class UsersController < ApplicationController
       end
     
       
-    def update
-      user = find_user
-      user.update!(update_params)
-      render json: user, status: :accepted
-    rescue ActiveRecord::RecordInvalid => error
-      render json: {errors: error.record.errors}
-  end
+      def update
+        user = User.find(params[:id])
+        if user.update(update_params)
+          render json: user
+        else
+          render json: { error: user.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
 
       private
     
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
         User.find(params[:id])
       end
       def update_params
-        params.permit(:username, :location, :bio)
-      end  
+        params.require(:user).permit(:id, :username, :location, :bio)
+      end
     
   end

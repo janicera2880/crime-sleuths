@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :channels, only: [:index, :show, :create] do
     # Nested resource for posts
     # By adding the do...end we can pass it a block of its nested routes.
-    resources :posts, only: [:show, :index]
+    resources :posts, only: [:show, :index, :create] # Add the create action
   end
 
   resources :users, only: [:index, :show, :update] do
