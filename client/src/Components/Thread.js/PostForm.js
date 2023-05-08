@@ -1,54 +1,59 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-// The `onAddPost` function is passed down as a prop from the parent component
 const PostForm = ({ onAddPost }) => {
-  // Initialize the form fields as empty strings and an empty array for errors
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [content, setContent] = useState("");
-  const [errors, setErrors] = useState([]);
-  
-  // Get the `id` parameter from the URL to determine the channelId
-  const { id } = useParams();
-  const channelId = parseInt(id);
+const [formData, setFormData] = useState({
+title: "",
+image: "",
+content: "",
+});
 
-  function handleSubmit(event) {
-    event.preventDefault();
+const [errors, setErrors] = useState([]);
+const [isLoading, setIsLoading] = useState(false);
 
-    const post = {
-      // Pass in the values of the form fields
-      title: title,
-      image: image,
-      content: content,
-    };
+const { id } = useParams();
+const channelId = parseInt(id);
 
-    fetch(`/channels/${channelId}/posts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
-      .then((r) => {
-        if (r.ok) {
-          setErrors([]);
-          return r.json();
-        } else {
-          return r.json().then((err) => {
-            throw new Error(err.errors);
-          });
-        }
-      })
-      .then((newPost) => {
-        onAddPost(newPost);
-        setTitle("");
-        setImage("");
-        setContent("");
-      })
-      .catch((error) => setErrors([error.message]));
+const handleChange = (event) => {
+setFormData({
+...formData,
+[event.target.name]: event.target.value, 
+});
+};
+
+const handleSubmit = (event) => {
+event.preventDefault();
+setIsLoading(true);
+
+const newPost = {
+  ...formData,
+};
+
+fetch(`/channels/${channelId}/posts`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(newPost),
+})
+.then((response) => {
+  if (response.ok) {
+    setErrors([]);
+    response.json().then((newPost) => onAddPost(newPost));
+  } else {
+    response.json().then((err) => {
+      if (err.errors) {
+        setErrors(err.errors);
+      } else {
+        setErrors([err.error]);
+      }
+    });
   }
-
+})
+.finally(() => {
+  setIsLoading(false);
+});
+};
   return (
     <div className="post-form">
       <br />
@@ -64,8 +69,8 @@ const PostForm = ({ onAddPost }) => {
           id="title"
           placeholder="Title"
           autoComplete="off"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          value={formData.title}
+          onChange={handleChange}
         />
         <br />
         <br />
@@ -75,8 +80,8 @@ const PostForm = ({ onAddPost }) => {
           id="image"
           placeholder="Image Url"
           autoComplete="off"
-          value={image}
-          onChange={(event) => setImage(event.target.value)}
+          value={formData.image}
+          onChange={handleChange}
         />
         <br />
         <br />
@@ -86,12 +91,12 @@ const PostForm = ({ onAddPost }) => {
           id="content"
           placeholder="Must be a minimum of 500 words..."
           autoComplete="off"
-          value={content}
-          onChange={(event) => setContent(event.target.value)}
+          value={formData.content}
+          onChange={handleChange}
         />
 
-        <button className="primary" type="submit">
-          Submit
+        <button className="primary" type="submit" disabled={isLoading}>
+        {isLoading ? "Submitting..." : "Submit"}
         </button>
 
         {errors.map((err) => (
@@ -100,9 +105,8 @@ const PostForm = ({ onAddPost }) => {
             {err}
           </li>
         ))}
-      </form>
-    </div>
+        </form>
+      </div>
   );
-};
-
+}
 export default PostForm;

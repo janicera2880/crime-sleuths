@@ -33,7 +33,14 @@ function LoginMessage() {
     <h4>    
       <img id="logoImg" src={headerImg} alt="crimesleuthsImg"/>
       <br />
-      <Link to={"/login"}>Join our community by signing in to view more stories.</Link>
+      <Link to={"/login"}>
+        Embark on an enriching journey through a vast collection of captivating stories...
+      </Link>
+      <br />
+      <br />
+      <Link to={"/signup"}>
+      and immerse yourself in our vibrant community by creating a new account.
+      </Link>
     </h4>
   )
 }

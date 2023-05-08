@@ -26,7 +26,7 @@ const ChannelContainer = ({ channels, onAddPost }) => {
       <div className="mypost-wrapper"></div>
 
       <h3>
-        <em> Channel: {showChannel ? showChannel.name : ""}</em>
+      <em> Channel: {showChannel ? showChannel.name : ""}</em>
       </h3>
       <br />
       <br />
@@ -35,7 +35,9 @@ const ChannelContainer = ({ channels, onAddPost }) => {
       <br />
       <br />
 
-      <PostForm onAddPost={onAddPost} />
+     
+      {/* Add the following check for showChannel before rendering PostForm */}
+      {showChannel && <PostForm onAddPost={onAddPost} />}
     </div>
   );
 };
