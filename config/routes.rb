@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  resources :posts, only: [:index, :show]
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"

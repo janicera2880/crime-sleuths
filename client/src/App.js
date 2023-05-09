@@ -19,7 +19,7 @@ import UserChannelPage from './Components/Thread.js/UserChannelPage';
 
 function App() {
   const { user, setUser } = useContext(UserContext);
-  const { posts, userPosts, setPosts, setUserPosts } = useContext(PostsContext);
+  const { setPosts, setUserPosts } = useContext(PostsContext);
   const [channels, setChannels] = useState([]);
   
   
@@ -57,11 +57,28 @@ function App() {
     setChannels([newChannel, ...channels]);
   }
   
-  function handleAddPost(newPost){
+  /*function handleAddPost(newPost){
     setPosts([newPost, ...posts]);
     setUserPosts([newPost, ...userPosts])
-  }
-  
+  }*/
+
+  function handleAddPost(newPost) {
+  setPosts((prevPosts) => {
+    if (prevPosts && Array.isArray(prevPosts)) {
+      return [newPost, ...prevPosts];
+    } else {
+      return [newPost];
+    }
+  });
+
+  setUserPosts((prevUserPosts) => {
+    if (prevUserPosts && Array.isArray(prevUserPosts)) {
+      return [newPost, ...prevUserPosts];
+    } else {
+      return [newPost];
+    }
+  });
+}
   return (
     
     <BrowserRouter>

@@ -43,12 +43,16 @@ fetch(`/channels/${channelId}/posts`, {
   } else {
     response.json().then((err) => {
       if (err.errors) {
-        setErrors(err.errors);
+        setErrors(Object.values(err.errors));
       } else {
         setErrors([err.error]);
       }
     });
   }
+})
+.catch((error) => {
+  console.error("Error:", error);
+  setErrors(["An error occurred. Please try again."]);
 })
 .finally(() => {
   setIsLoading(false);
@@ -56,11 +60,11 @@ fetch(`/channels/${channelId}/posts`, {
 };
   return (
     <div className="post-form">
-      <br />
-      <div className="formtext">Start A Thread On This Channel!</div>
-      <br />
-      <br />
-      <form onSubmit={handleSubmit}>
+        <br />
+        <div className="formtext">Start A Thread On This Channel!</div>
+        <br />
+        <br />
+        <form onSubmit={handleSubmit}>
         <br />
         <br />
         <label htmlFor="title">Title:</label>

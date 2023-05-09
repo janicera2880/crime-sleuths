@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     # POST
     def create
         user = find_user
-        new_post = user.posts.create(post_params)
+        new_post = user.posts.create!(post_params)
         render json: new_post, status: :created 
     rescue ActiveRecord::RecordInvalid => e
         render json: {errors: e.record.errors}, status: :unprocessable_entity
