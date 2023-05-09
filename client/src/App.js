@@ -78,6 +78,15 @@ function App() {
       return [newPost];
     }
   });
+
+  // Fetch channel posts again
+  fetch(`/channels/${newPost.channelId}/posts`)
+    .then((response) => response.json())
+    .then((data) => {
+      // Update the channel posts state
+      setPosts(data);
+    });
+
 }
   return (
     

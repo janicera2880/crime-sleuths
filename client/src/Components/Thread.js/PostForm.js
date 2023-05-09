@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PostForm = ({ onAddPost }) => {
 const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const [isLoading, setIsLoading] = useState(false);
 
 const { id } = useParams();
 const channelId = parseInt(id);
+const navigate = useNavigate();
 
 const handleChange = (event) => {
 setFormData({
@@ -40,6 +42,7 @@ fetch(`/channels/${channelId}/posts`, {
   if (response.ok) {
     setErrors([]);
     response.json().then((newPost) => onAddPost(newPost));
+    navigate("/channels")
   } else {
     response.json().then((err) => {
       if (err.errors) {
