@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PostForm from "./PostForm";
 
 
@@ -9,37 +10,34 @@ const ChannelContainer = ({ channels, onAddPost }) => {
   const showChannel = channels.find((channel) => channel.id === channelId);
 
   const renderPosts =
-    showChannel &&
-    showChannel.posts.map((post) => (
-      <li key={post.id}>
-        <span>
-          {post.user?.id && (
-            <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>
-          )}
-        </span>{" "}
-        <strong>{post.title}</strong> - {post.image && <img src={post.image} width="400" height="400" alt="Post" />}{" "}
-        {post.content}
-      </li>
-    ));
+  showChannel &&
+  showChannel.posts.map((post) => (
+    <div className="post-card" key={post.id}>
+      <span>
+        {post.user?.id && (
+          <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>
+        )}
+      </span>
+      <strong>{post.title}</strong>
+      {post.image && <img src={post.image} alt="imgPost" />}
+      <span>{post.short_content}</span>
+    </div>
+  ));
 
   return (
-    <div className="mypost-container">
-      <div className="mypost-wrapper"></div>
-
-      <h3>
-      <em> Channel : {showChannel ? showChannel.name : ""}</em>
-      </h3>
-      <br />
-      <br />
-      {renderPosts}
-      <br />
-      <br />
-
-     
-      {/* Add the following check for showChannel before rendering PostForm */}
-      {showChannel && <PostForm onAddPost={onAddPost} />}
+    <div className="channel-container">
+      <div className="container-box">
+        <h3>
+          <em>{showChannel ? showChannel.name : ""}</em>
+        </h3>
+        <p>{showChannel ? showChannel.description : ""}</p>
+        <div className="post-grid">{renderPosts}</div>
+        <br />
+        {showChannel && <PostForm onAddPost={onAddPost} />}
+      </div>
     </div>
   );
 };
+
 
 export default ChannelContainer;
