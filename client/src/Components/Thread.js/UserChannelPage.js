@@ -31,16 +31,19 @@ function UserChannelPage(){
         myChannel = <p>No channels found. Create a new channel to get started!</p>;
     }
 
-    return(
+    return (
         <div className="box">
-            <h2>{user ? `${user.username}'s Channels` : 'Loading...'}</h2>
-            <br />
-           
-            {myChannel}
-            <Link to={"/channels"}>Create New Channel</Link><br /><Link to={"/user"}> {user.username}'s Dashboard</Link>
-            <br />
+          <h2>{user ? `${user.username}'s Channels` : 'Loading...'}</h2>
+          <br />
+          {myChannel}
+          <Link to={"/channels"}>Create New Channel</Link>
+          <br />
+          {user && (
+            <Link to={"/user"}>{user.username}'s Dashboard</Link>
+          )}
+          <br />
         </div>
-    );
+      );
 }
 
 export default UserChannelPage;

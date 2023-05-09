@@ -10,8 +10,8 @@ body {
   font-weight: lighter;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-right: auto;
-  width: 180%;
-  max-width: 1530px; /* Adjust the value as needed */
+  width: 190%;
+  max-width: 1580px; /* Adjust the value as needed */
 }
 
 #logoImg {
@@ -393,7 +393,7 @@ button.secondary:hover {
 }
 
 .posts-list button {
-  background-color: #8f8786;
+  background-color: #746c6b;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -524,4 +524,46 @@ button.secondary:hover {
 .post-card img {
   max-width: 100%;
   height: auto;
+}
+
+.user-post-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.post-details-container {
+  max-width: 750px;
+  background-color: #bdb9b9;
+  padding: 80px;
+  border-radius: 8px;
+}
+
+.post-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #070707;
+  margin-bottom: 10px;
+}
+
+.post-image-container {
+  margin-bottom: 10px;
+}
+
+.post-image {
+  max-width: 90%;
+  border-radius: 8px;
+}
+
+.post-content {
+  font-size: 16px;
+  line-height: 1.8;
 }

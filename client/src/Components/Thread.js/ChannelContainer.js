@@ -13,14 +13,12 @@ const ChannelContainer = ({ channels, onAddPost }) => {
   showChannel &&
   showChannel.posts.map((post) => (
     <div className="post-card" key={post.id}>
-      <span>
-        {post.user?.id && (
-          <Link to={`/users/${post.user.id}`}>{post.user.username}:</Link>
-        )}
-      </span>
       <strong>{post.title}</strong>
       {post.image && <img src={post.image} alt="imgPost" />}
       <span>{post.short_content}</span>
+      <br />
+      <br />
+      <Link to={`/posts/${post.id}`}>click to view full story</Link>
     </div>
   ));
 

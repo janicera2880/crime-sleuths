@@ -24,24 +24,33 @@ function UserPostDetails() {
 
   function PostComponent() {
     return (
-      <div>
+      <div className="post-details-container">
         <br />
-        Article created by {post.user.username},
         <br />
-        {post.title}
         <br />
-        {post.image}
         <br />
-        {post.content}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <h2 className="post-title">{post.title}</h2>
+        <div className="post-info">
+          <span className="post-creator">Created by: {post.user.username}</span>
+          <span className="post-date">Date: {new Date(post.created_at).toLocaleDateString()}</span>
+        </div>
+        {post.image && (
+          <div className="post-image-container">
+            <img src={post.image} alt="Post" className="post-image" />
+          </div>
+        )}
+        <p className="post-content">{post.content}</p>
       </div>
     );
   }
 
-  return (
-    <div>
-      {post ? <PostComponent /> : "Loading post..."}
-    </div>
-  );
+  return <div className="user-post-details">{post ? <PostComponent /> : "Loading post..."}</div>;
 }
 
 export default UserPostDetails;
