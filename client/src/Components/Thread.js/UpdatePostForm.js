@@ -7,7 +7,7 @@ function UpdatePostForm ({post, updatePost}){
     // initialize state variables
   const [formData, setFormData] = useState({
     "title": post.title,
-    "content": "",
+    "content": post.content,
   })
 
   function handleInputChange(e){
@@ -21,8 +21,8 @@ function UpdatePostForm ({post, updatePost}){
 function handleSubmit(event) {
     event.preventDefault();
      // perform validation on form data here
-     if (formData.title.trim() === "" || formData.content.trim() === "") {
-         setError("Title and content are required.");
+     if (formData.title === "" || formData.content === "") {
+      setError([]);
         return;
       }
     const updatedPost = {
@@ -46,7 +46,7 @@ return (
             id="title"
             value={formData.title}
             onChange={handleInputChange}
-            style={{ width: "80%", padding: "3px", marginBottom: "20px"}}
+            style={{ width: "80%", padding: "8px", marginBottom: "20px"}}
           />
           <br />
           <br />

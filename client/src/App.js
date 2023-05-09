@@ -19,8 +19,9 @@ import UserChannelPage from './Components/Thread.js/UserChannelPage';
 
 function App() {
   const { user, setUser } = useContext(UserContext);
-  const { setPosts, setUserPosts } = useContext(PostsContext);
+  const { posts, userPosts, setPosts, setUserPosts } = useContext(PostsContext);
   const [channels, setChannels] = useState([]);
+  
   
 
   useEffect( ()=>{
@@ -56,6 +57,10 @@ function App() {
     setChannels([newChannel, ...channels]);
   }
   
+  function handleAddPost(newPost){
+    setPosts([newPost, ...posts]);
+    setUserPosts([newPost, ...userPosts])
+  }
   
   return (
     
@@ -71,7 +76,7 @@ function App() {
           <Route path="/user" element={<Dashboard />} />
           <Route path="/updateuser" element={<EditDashboard />} />
           <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
-          <Route path="/channels/:id" element={<ChannelContainer channels={channels} />} />
+          <Route path="/channels/:id" element={<ChannelContainer channels={channels} onAddPost={handleAddPost}/>} />
           <Route path="/user/posts" element={<PostLists />} />
           <Route path="/posts/:id" element={<UserPostDetails />} />
           <Route path="/user/channels" element={<UserChannelPage />} />

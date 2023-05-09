@@ -8,5 +8,5 @@ class Post < ApplicationRecord
 
     validates :title, presence: true, uniqueness: { case_sensitive: false }
     validates :image, presence: true
-    validates :content, presence: true, length: { minimum: 500 }
+    validates :content, presence: true, length: { minimum: 300 }
 end

@@ -66,7 +66,7 @@ fetch(`/channels/${channelId}/posts`, {
         <label htmlFor="title">Title:</label>
         <input
           type="text"
-          id="title"
+          name="title"
           placeholder="Title"
           autoComplete="off"
           value={formData.title}
@@ -77,7 +77,7 @@ fetch(`/channels/${channelId}/posts`, {
         <label htmlFor="image">Cover Photo:</label>
         <input
           type="text"
-          id="image"
+          name="image"
           placeholder="Image Url"
           autoComplete="off"
           value={formData.image}
@@ -88,20 +88,20 @@ fetch(`/channels/${channelId}/posts`, {
         <label htmlFor="content">Content:</label>
         <textarea
           type="text"
-          id="content"
-          placeholder="Must be a minimum of 500 words..."
+          name="content"
+          placeholder="Must be a minimum of 300 words..."
           autoComplete="off"
           value={formData.content}
           onChange={handleChange}
         />
 
-        <button className="primary" type="submit" disabled={isLoading}>
+        <button className="primary" type="submit">
         {isLoading ? "Submitting..." : "Submit"}
         </button>
 
         {errors.map((err) => (
           /* Display any errors returned by the server */
-          <li style={{ color: "yellow" }} key={err}>
+          <li style={{ color: "black" }} key={err}>
             {err}
           </li>
         ))}

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import PostForm from "./PostForm";
 
+
 const ChannelContainer = ({ channels, onAddPost }) => {
   const params = useParams();
   const channelId = parseInt(params.id);
@@ -26,11 +27,10 @@ const ChannelContainer = ({ channels, onAddPost }) => {
       <div className="mypost-wrapper"></div>
 
       <h3>
-      <em> Channel: {showChannel ? showChannel.name : ""}</em>
+      <em> Channel : {showChannel ? showChannel.name : ""}</em>
       </h3>
       <br />
       <br />
-      <h4>Recent Posts:</h4>
       {renderPosts}
       <br />
       <br />

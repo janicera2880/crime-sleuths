@@ -75,9 +75,9 @@ import UpdatePostForm from "./UpdatePostForm";
             return (
                 
                 <div className='posts-list'key={post.id}>
-                    {post.channel.name}
+                    <h4>Channel : {post.channel.name}</h4>
                     <br />
-                    {post.title}
+                    <h3>{post.title}</h3>
                     <br />
                     <img src={post.image} width="400" height="300" alt="Post" />
                     <br />
