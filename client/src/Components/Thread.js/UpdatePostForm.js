@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function UpdatePostForm ({post, updatePost}){
 
-    const [error, setError] = useState([]);
+    const [errors, setErrors] = useState([]);
     // initialize state variables
   const [formData, setFormData] = useState({
     "title": post.title,
@@ -22,7 +22,7 @@ function handleSubmit(event) {
     event.preventDefault();
      // perform validation on form data here
      if (formData.title === "" || formData.content === "") {
-      setError([]);
+      setErrors([]);
         return;
       }
     const updatedPost = {
@@ -43,7 +43,7 @@ return (
           <h5>Title :</h5>
           <input
             type="text"
-            id="title"
+            name="title"
             value={formData.title}
             onChange={handleInputChange}
             style={{ width: "80%", padding: "8px", marginBottom: "20px"}}
@@ -53,7 +53,7 @@ return (
           <h5>Content :</h5>
           <textarea
             type="text"
-            id="content"
+            name="content"
             value={formData.content}
             onChange={handleInputChange}
           />
@@ -61,7 +61,7 @@ return (
           <br />
           <button class="primary" type="submit">Submit</button>
        {/* Render error message if there is one */}
-      {error && <p style={{color: "black"}}>{error}</p>}
+      {errors && <p style={{color: "black"}}>{errors}</p>}
       </form>
     </div>
   );

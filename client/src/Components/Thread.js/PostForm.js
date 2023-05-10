@@ -42,7 +42,7 @@ fetch(`/channels/${channelId}/posts`, {
   if (response.ok) {
     setErrors([]);
     response.json().then((newPost) => onAddPost(newPost));
-    navigate("/channels")
+    navigate("/posts")
   } else {
     response.json().then((err) => {
       if (err.errors) {

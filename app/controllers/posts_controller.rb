@@ -6,12 +6,12 @@ class PostsController < ApplicationController
     # GET
     def index
         if params[:user_id]
-            user = find_user
-            render json: user.posts.all, status: :ok
-        else 
-            render json: Post.all, status: :ok
+          user = find_user
+          render json: user.posts.order(created_at: :desc), status: :ok
+        else
+          render json: Post.order(created_at: :desc), status: :ok
         end
-    end
+      end
       
     # GET /posts/:id
     def show

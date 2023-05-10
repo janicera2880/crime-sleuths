@@ -30,7 +30,7 @@ const AllPostsPage = () => {
     <div className="all-post">
       <div className="view-card" key={currentPost.id}>
         <h3>{currentPost.title}</h3>
-        {currentPost.image && <img src={currentPost.image} alt="Post-card" />}
+        {currentPost.image && <img src={currentPost.image} width="500" height="400" alt="Post-card" />}
         <p>{currentPost.content}</p>
         <h4>Author: {currentPost.user.username}</h4>
         <h5>Date: {new Date(currentPost.created_at).toLocaleDateString()}</h5>

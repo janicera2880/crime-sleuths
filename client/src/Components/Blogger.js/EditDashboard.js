@@ -103,15 +103,15 @@ function EditDashboard() {
                 <form onSubmit={handleSubmitClick}>
                 <label htmlFor="Username">Username:</label>
                     <br />
-                    <input type={"text"} name={"username"} placeholder={user?.username || ""} value={updateValues.username} onChange={handleInput} />
+                    <input type={"text"} name={"username"} placeholder={user?.username || ""} value={updateValues.username || ""} onChange={handleInput} />
                     <br />
                     <label htmlFor="bio">Bio:</label>
                     <br />
-                    <input type={"text"} name={"bio"} placeholder={user?.bio || ""} value={updateValues.bio} onChange={handleInput} />
+                    <input type={"text"} name={"bio"} placeholder={user?.bio || ""} value={updateValues.bio || ""} onChange={handleInput} />
                     <br />
                     <label htmlFor="location">Location:</label>
                     <br />
-                    <input type={"text"} name={"location"} placeholder={user?.location || ""} value={updateValues.location} onChange={handleInput} />
+                    <input type={"text"} name={"location"} placeholder={user?.location || ""} value={updateValues.location || ""} onChange={handleInput} />
                     <br />
                     <button type="Submit"> Submit </button>
                     <br />

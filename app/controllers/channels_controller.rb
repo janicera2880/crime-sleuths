@@ -1,7 +1,6 @@
 class ChannelsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-
-  skip_before_action :authorize, only: [:index]
+  skip_before_action :authorize, only: [:index, :show]
 
   # GET /channels
   def index
@@ -30,6 +29,7 @@ class ChannelsController < ApplicationController
   def find_channel
     Channel.find(params[:id])
   end
+
 
   def render_not_found_response
     render json: { error: 'Channel Not Found' }, status: :not_found

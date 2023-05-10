@@ -23,7 +23,12 @@ function App() {
   const { setPosts, setUserPosts } = useContext(PostsContext);
   const [channels, setChannels] = useState([]);
   
-  
+  useEffect(() => {
+    fetch("/updateuser")
+      .then((response) => response.json())
+      .then((data) => setUser(data.user))
+      .catch((error) => console.error("Error fetching user data:", error));
+  }, [setUser]);
 
   useEffect( ()=>{
     fetch("/me").then( (r) => {
@@ -81,12 +86,15 @@ function App() {
   });
 
   // Fetch channel posts again
+  
   fetch(`/channels/${newPost.channelId}/posts`)
     .then((response) => response.json())
     .then((data) => {
       // Update the channel posts state
       setPosts(data);
     });
+
+   
 
 }
   return (

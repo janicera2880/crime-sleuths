@@ -20,7 +20,7 @@ function NavBar(){
             <nav>
                 <h5>Crime | Sleuths&trade;</h5>
             <br />
-            { user? <NametagButton /> : <Link to="/signup">Sign Up Here</Link> }
+            { user? <NametagButton /> : <Link to="/signup">Signup Here</Link> }
                 <br />
                 <br />
             <LoginLogoutToggle />
@@ -36,11 +36,11 @@ function NavBar(){
             <br />
             <br />
             <br />
-            <NavLink to="/posts"> Recent Posts </NavLink>
-            <br />
-            <br />
-            <br />
             <NavLink to="/channels"> All Channels </NavLink>
+            <br />
+            <br />
+            <br />
+            <NavLink to="/posts"> Top Stories </NavLink>
             <div class="footer">
             <br />
             <br />

@@ -30,30 +30,29 @@ import UpdatePostForm from "./UpdatePostForm";
 }
 
     // Function to update a post
-    function updatePost(updatedPost, postID ){
-        fetch(`/users/${user.id}/posts/${postID}`,{
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(updatedPost)
-          }).then(r => r.json()).then(data =>{
-
-            // Create a new array with the updated post
+    function updatePost(updatedPost, postID) {
+        fetch(`/users/${user.id}/posts/${postID}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedPost),
+        })
+          .then((r) => r.json())
+          .then((post) => {
             const newPostArray = [...userPosts];
-            newPostArray.map(r => {
-                if (r.post.id === data.id) {
-                    r.title = data.title;
-                    r.image = data.image;
-                    r.content = data.content;
-                }
-                return r; // Add a return statement here
+            newPostArray.map((r) => {
+              if (r.post.id === post.id) {
+                r.title = post.title;
+                r.image = post.image;
+                r.content = post.content;
+              }
+              return r;
             });
-
-            // Update the userPosts context with the new array
+      
             setUserPosts(newPostArray);
           });
-    }
+      }
 
     // Function to render the post components
     const postComponent = () => {

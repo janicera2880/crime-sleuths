@@ -4,26 +4,21 @@ const ChannelForm = ({ onAddChannel }) => {
   const previousValues = {
     name: "",
     description: "",
-    
   };
   const [values, setValues] = useState(previousValues);
-  const [errors, setErrors] = useState([]); // Initialize errors state as an empty array
-  
+  const [errors, setErrors] = useState([]);
+
   const handleInputSave = (e) => {
-    //const name = e.target.name
-    //const value = e.target.value
     const { name, value } = e.target;
 
     setValues({
       ...values,
       [name]: value,
     });
-    // console.log(values);
   };
 
   function handleSubmit(event) {
     event.preventDefault();
-    
 
     fetch("/channels", {
       method: "POST",
@@ -40,7 +35,6 @@ const ChannelForm = ({ onAddChannel }) => {
       }
     });
 
-    // clear the input fields after submission
     setValues(previousValues);
   }
 
@@ -64,16 +58,18 @@ const ChannelForm = ({ onAddChannel }) => {
           value={values.description}
           onChange={handleInputSave}
         />
-        {/* Submit button */}
-        <button className="primary" type="submit">Submit</button>
-        {/* Render error messages */}
-        {errors.map((err) => (
-          <li style={{ color: "black" }} key={err}>
-          {err}
-        </li>
-        ))}
 
-       
+        <button className="primary" type="submit">
+          Submit
+        </button>
+
+        <ul>
+          {errors.map((err, index) => (
+            <li style={{ color: "black" }} key={index}>
+              {err}
+            </li>
+          ))}
+        </ul>
       </form>
     </div>
   );
