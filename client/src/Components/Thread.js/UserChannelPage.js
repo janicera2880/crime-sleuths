@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
+import channelImg from "../Images/mychannel.gif"
 
 
 
@@ -33,7 +34,9 @@ function UserChannelPage(){
 
     return (
         <div className="box">
-          <h2>{user ? `${user.username}'s Channels` : 'Loading...'}</h2>
+            <h2>{user ?  `Hello ${user.username}` : 'Loading...'}</h2>
+            <img id="channelImg" src={channelImg} width="600" height="220" alt="channelImg" />
+          
           <br />
           {myChannel}
           <Link to={"/channels"}>Create New Channel</Link>

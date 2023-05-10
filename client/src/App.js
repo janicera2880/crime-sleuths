@@ -14,6 +14,7 @@ import UserPostDetails from "./Components/Thread.js/UserPostDetails";
 import PostLists from './Components/Thread.js/PostLists';
 import { PostsContext } from './Components/Context/PostsContext';
 import UserChannelPage from './Components/Thread.js/UserChannelPage';
+import AllPostsPage from './Components/Thread.js/AllPostsPage';
 
 
 
@@ -104,6 +105,7 @@ function App() {
           <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
           <Route path="/channels/:id" element={<ChannelContainer channels={channels} onAddPost={handleAddPost}/>} />
           <Route path="/user/posts" element={<PostLists />} />
+          <Route path="/posts" element={<AllPostsPage />} />
           <Route path="/posts/:id" element={<UserPostDetails />} />
           <Route path="/user/channels" element={<UserChannelPage />} />
         </Routes>

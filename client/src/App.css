@@ -263,8 +263,8 @@ button.secondary:hover {
 .box {
   display: grid;
   flex-direction:column;
-  background-color: #dfd5d5;
-  height: 750px;
+  background-color: #9b9a9a;
+  height: 950px;
   width: 630px;
   justify-content: center;
   align-items: center;
@@ -503,12 +503,12 @@ button.secondary:hover {
   padding: 20px;
   border: 5px solid #473d3d;
   border-radius: 8px;
-  background-color: #b4b2b2;
+  background-color: #d4d3d3;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+/*All Posts */
 .post-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -517,7 +517,7 @@ button.secondary:hover {
 }
 
 .post-card {
-  border: 5px solid #ccc;
+  border: 5px solid #3d3838;
   padding: 20px;
 }
 
@@ -534,9 +534,9 @@ button.secondary:hover {
 }
 
 .post-details-container {
-  max-width: 750px;
+  max-width: 850px;
   background-color: #bdb9b9;
-  padding: 80px;
+  padding: 50px;
   border-radius: 8px;
 }
 
@@ -567,3 +567,32 @@ button.secondary:hover {
   font-size: 16px;
   line-height: 1.8;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-card {
+  width: 800px;
+  border: 5px solid #585252;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post-card h3 {
+  margin-top: 0;
+}
+
+.post-card img {
+  max-width: 70%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.post-card p {
+  margin-bottom: 10px;
+}
+
