@@ -20,7 +20,7 @@ import AllPostsPage from './Components/Thread.js/AllPostsPage';
 
 function App() {
   const { user, setUser } = useContext(UserContext);
-  const { setPosts, setUserPosts } = useContext(PostsContext);
+  const { posts, userPosts, setPosts, setUserPosts } = useContext(PostsContext);
   const [channels, setChannels] = useState([]);
   
   useEffect(() => {
@@ -57,7 +57,7 @@ function App() {
     fetch(`/posts`).then( r => r.json() ).then( (data)=>{
       setPosts(data);
     })
-  }, [setPosts])
+  }, [setPosts]);
 
   function handleAddChannel(newChannel) {
     setChannels([newChannel, ...channels]);
@@ -69,14 +69,14 @@ function App() {
   }*/
 
   function handleAddPost(newPost) {
-  setPosts((prevPosts) => {
-    if (prevPosts && Array.isArray(prevPosts)) {
-      return [newPost, ...prevPosts];
-    } else {
-      return [newPost];
-    }
-  });
-
+    setPosts((prevPosts) => {
+      if (prevPosts && Array.isArray(prevPosts)) {
+        return [newPost, ...prevPosts];
+      } else {
+        return [newPost];
+      }
+    });
+  
   setUserPosts((prevUserPosts) => {
     if (prevUserPosts && Array.isArray(prevUserPosts)) {
       return [newPost, ...prevUserPosts];
@@ -94,9 +94,26 @@ function App() {
       setPosts(data);
     });
 
-   
-
-}
+    function handleDeletePost(deletedPost) {
+      const newPostArray = userPosts.filter((post) => {
+        return post.id !== deletedPost.id;
+      });
+    
+      const updatedChannelArray = channels.map((channel) => {
+        if (channel.id === deletedPost.channel_id) {
+          return {
+            ...channel,
+            posts: channel.posts.filter((post) => post.id !== deletedPost.id)
+          };
+        } else {
+          return channel;
+        }
+      });
+    
+      setUserPosts(newPostArray);
+      setChannels(updatedChannelArray);
+    }
+    
   return (
     
     <BrowserRouter>
@@ -112,7 +129,7 @@ function App() {
           <Route path="/updateuser" element={<EditDashboard />} />
           <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
           <Route path="/channels/:id" element={<ChannelContainer channels={channels} onAddPost={handleAddPost}/>} />
-          <Route path="/user/posts" element={<PostLists />} />
+          <Route path="/user/posts" element={<PostLists posts={posts} deletePost={handleDeletePost}/>} />
           <Route path="/posts" element={<AllPostsPage />} />
           <Route path="/posts/:id" element={<UserPostDetails />} />
           <Route path="/user/channels" element={<UserChannelPage />} />
