@@ -12,7 +12,7 @@ const ChannelContainer = ({ channels, onAddPost }) => {
   const renderPosts =
   showChannel &&
   showChannel.posts.map((post) => (
-    <div className="post-card" key={post.id}>
+    <div className="poster-card" key={post.id}>
       <strong>{post.title}</strong>
       {post.image && <img src={post.image} alt="imgPost" />}
       <span>{post.short_content}</span>
@@ -23,13 +23,13 @@ const ChannelContainer = ({ channels, onAddPost }) => {
   ));
 
   return (
-    <div className="channel-container">
+    <div className="channel-box">
       <div className="container-box">
         <h3>
           <em>{showChannel ? showChannel.name : ""}</em>
         </h3>
         <p>{showChannel ? showChannel.description : ""}</p>
-        <div className="post-grid">{renderPosts}</div>
+        <div className="poster-grid">{renderPosts}</div>
         <br />
         {showChannel && <PostForm onAddPost={onAddPost} />}
       </div>

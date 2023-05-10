@@ -25,16 +25,6 @@ function UserPostDetails() {
   function PostComponent() {
     return (
       <div className="post-details-container">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <h2 className="post-title">{post.title}</h2>
         <div className="post-info">
           <span className="post-creator">Created by: {post.user.username}</span>
