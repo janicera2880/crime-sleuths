@@ -39,10 +39,10 @@ class PostsController < ApplicationController
     def destroy
         post = find_post
         if post.user_id == session[:user_id]
-            review.destroy
+            post.destroy
             render json: review, status: 200
           else
-            render json: { error: "You are not authorized to delete this review" }, status: :unauthorized
+            render json: { error: "You are not authorized to delete this post" }, status: :unauthorized
           end
         end
 

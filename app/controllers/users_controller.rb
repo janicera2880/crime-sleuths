@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:create, :index, :update]
+  skip_before_action :authorize, only: [:create, :index]
 
 
     # GET ALL Users
@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     end
 
     def show
-      #byebug
       user = find_user
     if user
       render json: user, status: :ok
@@ -30,6 +29,7 @@ class UsersController < ApplicationController
     
       
       def update
+        # params[:id] refers to the dynamic part of our route, defined by :id
         user = User.find(params[:id])
         if user.update(update_params)
           render json: user
