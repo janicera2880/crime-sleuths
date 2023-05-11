@@ -5,7 +5,7 @@
 
 body {
   text-align: center;
-  background-color: #999898;
+  background-color: #ada7a7;
   font-style: oblique;
   font-weight: lighter;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -202,7 +202,7 @@ a:hover {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #999696;
+  background-color: #aca7a7;
   border: 1px solid #ccc;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -216,7 +216,7 @@ a:hover {
   display: inline-block;
   margin: 10px 0;
   padding: 10px 20px;
-  background-color: rgb(189, 183, 166);
+  background-color: rgb(138, 135, 129);
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
@@ -224,7 +224,7 @@ a:hover {
 }
 
 .dashboard a:hover {
-  background-color:rgb(163, 151, 117);
+  background-color:rgb(179, 176, 169);
 }
 
 /*Buttons*/
@@ -368,7 +368,7 @@ button.secondary:hover {
   flex-direction:column;
   background-color: #b8afaf;
   height: 2650px;
-  width: 870px;
+  width: 850px;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -380,7 +380,7 @@ button.secondary:hover {
 }
 
 .posts-list {
-  border: 5px solid #5a5151;
+  border: 3px solid #948f8f;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -389,7 +389,7 @@ button.secondary:hover {
   max-width: 400px;
   max-height: 300px;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .posts-list button {
@@ -555,12 +555,12 @@ button.secondary:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150vh;
+  height: 200vh;
   background-color: #b6b1b1;
 }
 
 .container-box {
-  width: 850px;
+  width: 500px;
   padding: 20px;
   background-color: #b8afaf;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -597,7 +597,7 @@ button.secondary:hover {
 }
 
 .poster-card img {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
   margin-bottom: 10px;
 }
@@ -617,18 +617,19 @@ button.secondary:hover {
 }
 
 .poster-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 700px) {
   .poster-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 560px) {
   .container-box {
     width: 90%;
   }

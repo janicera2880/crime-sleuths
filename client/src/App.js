@@ -20,7 +20,7 @@ import AllPostsPage from './Components/Thread.js/AllPostsPage';
 
 function App() {
   const { user, setUser } = useContext(UserContext);
-  const { posts, userPosts, setPosts, setUserPosts } = useContext(PostsContext);
+  const { posts, setPosts, setUserPosts } = useContext(PostsContext);
   const [channels, setChannels] = useState([]);
   
   useEffect(() => {
@@ -94,7 +94,7 @@ function App() {
       setPosts(data);
     });
 
-    function handleDeletePost(deletedPost) {
+   /* function handleDeletePost(deletedPost) {
       const newPostArray = userPosts.filter((post) => {
         return post.id !== deletedPost.id;
       });
@@ -112,8 +112,8 @@ function App() {
     
       setUserPosts(newPostArray);
       setChannels(updatedChannelArray);
-    }
-    
+    }*/
+  }  
   return (
     
     <BrowserRouter>
@@ -129,7 +129,7 @@ function App() {
           <Route path="/updateuser" element={<EditDashboard />} />
           <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
           <Route path="/channels/:id" element={<ChannelContainer channels={channels} onAddPost={handleAddPost}/>} />
-          <Route path="/user/posts" element={<PostLists posts={posts} deletePost={handleDeletePost}/>} />
+          <Route path="/user/posts" element={<PostLists posts={posts} />} />
           <Route path="/posts" element={<AllPostsPage />} />
           <Route path="/posts/:id" element={<UserPostDetails />} />
           <Route path="/user/channels" element={<UserChannelPage />} />

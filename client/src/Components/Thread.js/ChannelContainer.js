@@ -13,8 +13,9 @@ const ChannelContainer = ({ channels, onAddPost }) => {
   showChannel &&
   showChannel.posts.map((post) => (
     <div className="poster-card" key={post.id}>
-      <strong>{post.title}</strong>
+      <h4>{post.title}</h4>
       {post.image && <img src={post.image} alt="imgPost" />}
+      <br />
       <span>{post.short_content}</span>
       <br />
       <br />

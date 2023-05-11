@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:create, :index]
+  before_action :authorize, except: [:create, :index]
 
 
     # GET ALL Users
