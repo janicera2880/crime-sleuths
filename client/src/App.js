@@ -27,7 +27,6 @@ function App() {
     fetch("/updateuser")
       .then((response) => response.json())
       .then((data) => setUser(data.user))
-      .catch((error) => console.error("Error fetching user data:", error));
   }, [setUser]);
 
   useEffect( ()=>{
@@ -85,6 +84,7 @@ function App() {
     }
   });
 
+
   // Fetch channel posts again
   
   fetch(`/channels/${newPost.channelId}/posts`)
@@ -126,7 +126,7 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/user" element={<Dashboard />} />
-          <Route path="/updateuser" element={<EditDashboard />} />
+          <Route path="/updateuser" element={<EditDashboard user={user}/>} />
           <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
           <Route path="/channels/:id" element={<ChannelContainer channels={channels} onAddPost={handleAddPost}/>} />
           <Route path="/user/posts" element={<PostLists posts={posts} />} />

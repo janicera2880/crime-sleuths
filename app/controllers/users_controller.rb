@@ -29,14 +29,14 @@ class UsersController < ApplicationController
     
       
       def update
-        # params[:id] refers to the dynamic part of our route, defined by :id
-        user = User.find(params[:id])
+        user = find_user
         if user.update(update_params)
           render json: user
         else
           render json: { error: user.errors.full_messages }, status: :unprocessable_entity
         end
       end
+    
 
       private
     
@@ -50,5 +50,9 @@ class UsersController < ApplicationController
       def update_params
         params.require(:user).permit(:id, :username, :location, :bio)
       end
-    
-  end
+      def authorize
+        unless session[:user_id]
+          render json: { error: 'Unauthorized' }, status: :unauthorized
+        end
+      end
+    end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :update] do
-    resources :posts
+    resources :posts, only: [:index] # Restrict nested routes to index action only
   end
 
   resources :posts

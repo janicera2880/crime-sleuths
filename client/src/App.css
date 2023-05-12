@@ -255,7 +255,7 @@ button.primary:hover {
 
 
 button.secondary:hover {
-  background-color: #999696;
+  background-color: #a09898;
   color: #f0dcdc;
 }
 
@@ -263,7 +263,7 @@ button.secondary:hover {
 .box {
   display: grid;
   flex-direction:column;
-  background-color: #9b9a9a;
+  background-color: #a39d9d;
   height: 950px;
   width: 630px;
   justify-content: center;
@@ -362,7 +362,7 @@ button.secondary:hover {
   background-color: #006080;
 }
 
-
+/*My Post with Edit Form*/
 .post-component {
   display: grid;
   flex-direction:column;
@@ -555,12 +555,12 @@ button.secondary:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200vh;
+  height: 180vh;
   background-color: #b6b1b1;
 }
 
 .container-box {
-  width: 500px;
+  width: 600px;
   padding: 20px;
   background-color: #b8afaf;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

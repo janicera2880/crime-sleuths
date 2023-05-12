@@ -4,7 +4,7 @@ import { UserContext } from "../Context/UserContext";
 import { PostsContext } from "../Context/PostsContext";
 import UpdatePostForm from "./UpdatePostForm";
 
-function PostLists({ post, deletePost }) {
+function PostLists({ }) {
   // Get the user and userPosts context
   const { user } = useContext(UserContext);
   const { userPosts, setUserPosts } = useContext(PostsContext);
