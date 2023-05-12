@@ -22,29 +22,37 @@ class PostsController < ApplicationController
     # POST
     def create
         user = find_user
+        if authorized_user?(user)
         new_post = user.posts.create!(post_params)
         render json: new_post, status: :created 
+    else
+        render json: { error: "You are not authorized to create a post" }, status: :unauthorized
+      end
     rescue ActiveRecord::RecordInvalid => e
-        render json: {errors: e.record.errors}, status: :unprocessable_entity
+      render json: { errors: e.record.errors }, status: :unprocessable_entity
     end
 
     # PATCH
     def update
         post = find_post
-        post.update!(post_params)
-        render json: post, status: :ok
-    end
+        if authorized_user?(post.user)
+          post.update!(post_params)
+          render json: post, status: :ok
+        else
+          render json: { error: "You are not authorized to update this post" }, status: :unauthorized
+        end
+      end
 
     # DELETE
     def destroy
         post = find_post
-        if post.user_id == session[:user_id]
-            post.destroy
-            render json: review, status: 200
-          else
-            render json: { error: "You are not authorized to delete this post" }, status: :unauthorized
-          end
+        if authorized_user?(post.user)
+          post.destroy
+          render json: post, status: 200
+        else
+          render json: { error: "You are not authorized to delete this post" }, status: :unauthorized
         end
+      end
 
     private 
 
@@ -62,11 +70,14 @@ class PostsController < ApplicationController
     end
 
     def authorize
-        render json: {error: "Not authorized"}, status: :unauthorized unless session.include? :user_id
+        render json: { error: "Not authorized" }, status: :unauthorized unless session.include?(:user_id)
+      end
+    
+      def render_not_found_response
+        render json: { error: "Record not found" }, status: :not_found
+      end
+    
+      def authorized_user?(user)
+        user && user.id == session[:user_id]
+      end
     end
-
-    def render_not_found_response
-        render json: {error: "Record not found"}, status: :not_found
-    end
-
-end
