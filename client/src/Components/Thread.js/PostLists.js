@@ -4,7 +4,7 @@ import { UserContext } from "../Context/UserContext";
 import { PostsContext } from "../Context/PostsContext";
 import UpdatePostForm from "./UpdatePostForm";
 
-function PostLists({ }) {
+function PostLists() {
   // Get the user and userPosts context
   const { user } = useContext(UserContext);
   const { userPosts, setUserPosts } = useContext(PostsContext);
@@ -49,20 +49,27 @@ function PostLists({ }) {
       body: JSON.stringify(updatedPost),
     })
       .then((r) => r.json())
-      .then((post) => {
+      .then((updatedPost) => {
         const newPostArray = [...userPosts];
-        newPostArray.map((r) => {
-          if (r.post.id === post.id) {
-            r.title = post.title;
-            r.image = post.image;
-            r.content = post.content;
-          }
-          return r;
+        const updatedPostIndex = newPostArray.findIndex((post) => post.id === updatedPost.id);
+        if (updatedPostIndex !== -1) {
+          newPostArray[updatedPostIndex] = updatedPost;
+          setUserPosts(newPostArray);
+        }
+  
+        // Update the corresponding post in the channel it belongs to
+      if (updatedPost.channel && updatedPost.channel.id) {
+        const channelID = updatedPost.channel.id;
+        fetch(`/channels/${channelID}/posts/${updatedPost.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedPost),
         });
-
-        setUserPosts(newPostArray);
-      });
-  }
+      }
+    });
+}
 
   // Function to render the post components
   const postComponent = () => {
