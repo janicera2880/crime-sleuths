@@ -7,7 +7,6 @@ import Home from './Components/Blogger.js/Home';
 import SignupForm from "./Components/Blogger.js/SignupForm";
 import LoginForm from "./Components/Blogger.js/LoginForm";
 import Dashboard from "./Components/Blogger.js/Dashboard";
-import EditDashboard from "./Components/Blogger.js/EditDashboard";
 import ChannelsLists from "./Components/Thread.js/ChannelsLists";
 import ChannelContainer from "./Components/Thread.js/ChannelContainer";
 import UserPostDetails from "./Components/Thread.js/UserPostDetails";
@@ -83,7 +82,22 @@ function App() {
       return [newPost];
     }
   });
-
+  setChannels((prevChannels) => {
+    if (prevChannels && Array.isArray(prevChannels)) {
+      return prevChannels.map((channel) => {
+        if (channel.id === newPost.channel.id) {
+          // Add the new post to the channel's posts array
+          const updatedChannel = { ...channel };
+          updatedChannel.posts = [newPost, ...channel.posts];
+          return updatedChannel;
+        } else {
+          return channel;
+        }
+      });
+    } else {
+      return prevChannels;
+    }
+  });
 
   // Fetch channel posts again
   
@@ -126,7 +140,6 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/user" element={<Dashboard />} />
-          <Route path="/updateuser" element={<EditDashboard user={user}/>} />
           <Route path="/channels" element={<ChannelsLists channels={channels} onAddChannel={handleAddChannel}/>} />
           <Route path="/channels/:id" element={<ChannelContainer channels={channels} onAddPost={handleAddPost}/>} />
           <Route path="/user/posts" element={<PostLists posts={posts} />} />

@@ -1,24 +1,54 @@
-# Project Template: React/Rails API
+# CRIME | SLEUTHS
+![video](https://j.gifs.com/w06gmm.gif)
 
-## Description
+### Table Of Contents
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Render.
+[Description](#description) 
 
-**Note**: if you are not planning to deploy your app to Render and prefer to use
-SQLite, you will need to make the following changes in the project files:
+[Outline](#outline)
 
-1. In the `Gemfile`, replace `gem 'pg', '~> 1.1'` with `gem 'sqlite3', '~>
-   1.4'`.
-2. In the `database.yml` file, change the line `adapter: postgresql` to
-   `adapter: sqlite3`.
+[Requirements](#requirements) 
+
+[Usage](#usage) 
+
+[Contributing](#contributing) 
+
+[License](#license) 
+
+## Description 
+Welcome to Crime Sleuths, a web blog application tailored for individuals who are passionate about investigating crimes and intrigued by the intricacies of human behavior. With an optimized stack that includes JS, React, HTML, CSS, and Ruby on Rails in the backend, Crime Sleuths ensures a seamless and user-friendly experience for all.
+
+Crime Sleuths is the perfect platform for those who love the thrill of being an online detective. Whether you're interested in solving complex mysteries or delving into the psychological aspects of criminal behavior, this app has you covered.
+
+## Outline
+
+*Log in to gain access to the app.
+  
+  *Create your own channel and add a post story to start a thread.
+    If you don't have an account, easily sign up to join the community.
+    Upon logging in, you will be redirected to the homepage.
+
+*Community Guidelines:
+
+  *The homepage provides guidelines to ensure a safe and enjoyable environment for all users.
+
+*Navigation Options:
+
+  *Dashboard: View all the posts and channels you have created.
+  *Logout: Sign out of your account.
+  *All Channels: Access a list of all available channels.
+  *Top Stories: Discover latest and trending stories.
+
+*Dashboard Features:
+
+  *Comprehensive view: The dashboard presents all your posts and channels in an organized manner.
+  *Edit and delete: Empowers you to make changes to your posts and maintain control over your content.
+  *Convenient listing: Posts and channels are displayed in a user-friendly and easily accessible format.
 
 ## Requirements
 
 - Ruby 2.7.4
 - NodeJS (v16), and npm
-- Render account
-- Postgresql
 
 See Environment Setup below for instructions on installing these tools if you
 don't already have them.

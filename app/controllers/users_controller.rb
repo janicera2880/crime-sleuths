@@ -31,9 +31,9 @@ class UsersController < ApplicationController
       def update
         user = find_user
         if user.update(update_params)
-          render json: user
+          render json: user, status: :ok
         else
-          render json: { error: user.errors.full_messages }, status: :unprocessable_entity
+          render json: user.errors, status: :unprocessable_entity
         end
       end
     

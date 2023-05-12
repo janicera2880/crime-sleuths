@@ -23,6 +23,9 @@ function UserPostDetails() {
   }, [id]);
 
   function PostComponent() {
+    //if (!post || !post.user) {
+      //return null; // or display a loading state
+    
     return (
       <div className="post-details-container">
         <h2 className="post-title">{post.title}</h2>

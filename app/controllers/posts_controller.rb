@@ -5,13 +5,13 @@ class PostsController < ApplicationController
     
     # GET
     def index
-        if params[:user_id]
-          user = find_user
-          render json: user.posts.order(created_at: :desc), status: :ok
-        else
-          render json: Post.order(created_at: :desc), status: :ok
-        end
+      if params[:user_id]
+        user = find_user
+        render json: user.posts.order(created_at: :desc), status: :ok
+      else
+        render json: Post.order(created_at: :desc), status: :ok
       end
+    end
       
     # GET /posts/:id
     def show
@@ -45,14 +45,14 @@ class PostsController < ApplicationController
 
     # DELETE
     def destroy
-        post = find_post
-        if authorized_user?(post.user)
-          post.destroy
-          render json: post, status: 200
-        else
-          render json: { error: "You are not authorized to delete this post" }, status: :unauthorized
-        end
+      post = find_post
+      if authorized_user?(post.user)
+        post.destroy
+        render json: post, status: 200
+      else
+        render json: { error: "You are not authorized to delete this post" }, status: :unauthorized
       end
+    end
 
     private 
 
