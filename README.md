@@ -1,7 +1,5 @@
 # CRIME | SLEUTHS
 
-C:\Users\janic\Downloads\Black and White Photo True Crime & Investigative Journalism Podcast Cover.gif
-
 ![crime-sleuths](C:\Users\janic\Downloads\Black and White Photo True Crime & Investigative Journalism Podcast Cover.gif)
 
 ### Table Of Contents
