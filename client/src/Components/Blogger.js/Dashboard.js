@@ -31,7 +31,7 @@ function Dashboard(){
             <br />
             <br />
             <br />
-            <Link to={"/user/posts"}>My Blog Posts</Link> <Link to={"/user/channels"}>My Channels</Link>
+            <Link to={"/user/channels"}>My Channels</Link> <Link to={"/user/posts"}>My Blog Posts</Link> 
             
             
             

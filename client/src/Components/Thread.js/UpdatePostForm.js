@@ -46,7 +46,7 @@ return (
             name="title"
             value={formData.title}
             onChange={handleInputChange}
-            style={{ width: "80%", padding: "8px", marginBottom: "20px"}}
+            style={{ width: "70%", padding: "8px", marginBottom: "8px" }}
           />
           <br />
           <br />

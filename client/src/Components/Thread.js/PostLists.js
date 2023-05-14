@@ -91,7 +91,6 @@ function PostLists() {
             return (
                 
                 <div className='posts-list'key={post.id}>
-                    <h4>Channel : {post.channel.name}</h4>
                     <br />
                     <h3>{post.title}</h3>
                     <br />
@@ -99,9 +98,7 @@ function PostLists() {
                     <br />
                     {post.content}
                     <br />
-                    <br />
                     <UpdatePostForm post={post} updatePost={handleUpdate} />
-                    <br />
                     <button onClick={handleDeleteClick}>Delete Post</button>
                     <br />
                     <br />

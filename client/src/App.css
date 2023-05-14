@@ -364,23 +364,23 @@ button.secondary:hover {
 
 /*My Post with Edit Form*/
 .post-component {
-  display: grid;
+  display:grid;
   flex-direction:column;
   background-color: #b8afaf;
-  height: 2650px;
-  width: 850px;
+  height: 2500px;
+  width: 830px;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   text-align: center;
-  padding: 5%;
-  border-radius: 5px;
+  padding: 10%;
+  border-radius: 3px;
   box-shadow: 5px 5px #3d2208;
   transition: .10s;
 }
 
 .posts-list {
-  border: 3px solid #948f8f;
+  border: 5px solid #948f8f;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -405,7 +405,7 @@ button.secondary:hover {
   background-color: #857777;
 }
 .post-form {
-  background-color: #beb9b9;
+  background-color: #c5b9b9;
   border-radius: 5px;
   box-shadow: 0px 0px 8px rgba(37, 33, 33, 0.2);
   padding: 10px;
@@ -645,7 +645,7 @@ button.secondary:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 130vh;
+  height: 100vh;
   background-color: #c5c1c1;
 }
 .post-details-container {
@@ -653,12 +653,12 @@ button.secondary:hover {
   padding: 20px;
   background-color: #b4b0b0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  border-radius: 10px;
   text-align: center;
 }
 
 .post-details-container .post-title {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
@@ -666,7 +666,7 @@ button.secondary:hover {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #631010;
+  color: #300c0c;
 }
 
 .post-details-container .post-info .post-creator {
@@ -682,12 +682,12 @@ button.secondary:hover {
 }
 
 .post-details-container .post-image {
-  max-width: 70%;
+  max-width: 50%;
   height: auto;
 }
 
 .post-details-container .post-content {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 576px) {
@@ -695,4 +695,3 @@ button.secondary:hover {
     width: 100%;
   }
 }
-

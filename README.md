@@ -1,5 +1,3 @@
-# CRIME | SLEUTHS
-
 ### Table Of Contents
 
 [Description](#description) 
