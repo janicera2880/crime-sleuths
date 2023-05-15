@@ -5,14 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { UserProvider } from "./Components/Context/UserContext";
 import { PostsProvider } from './Components/Context/PostsContext';
-
+import { ChannelsProvider } from "./Components/Context/ChannelsContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
+      <ChannelsProvider>
       <PostsProvider>
       <App />
       </PostsProvider>
+      </ChannelsProvider>
     </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")

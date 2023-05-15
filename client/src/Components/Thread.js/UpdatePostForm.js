@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function UpdatePostForm ({post, updatePost}){
+function UpdatePostForm ({post, handleUpdateFormSubmit}){
 
     const [errors, setErrors] = useState([]);
     // initialize state variables
@@ -29,7 +29,7 @@ function handleSubmit(event) {
       title: formData.title,
       content: formData.content,
     };
-    updatePost(updatedPost);
+    handleUpdateFormSubmit(updatedPost);
     setFormData({ ...post, ...updatedPost });
   }
   

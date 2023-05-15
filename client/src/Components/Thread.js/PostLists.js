@@ -3,44 +3,44 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 import { PostsContext } from "../Context/PostsContext";
 import UpdatePostForm from "./UpdatePostForm";
+import { ChannelsContext } from "../Context/ChannelsContext";
 
 function PostLists() {
   // Get the user and userPosts context
   const { user } = useContext(UserContext);
   const { userPosts, setUserPosts } = useContext(PostsContext);
+  const { channels, setChannels } = useContext(ChannelsContext);
 
   // Function to delete post
-  function handleDeletePost(post) {
-    fetch(`/users/${user.id}/post/${post.id}`, {
+  function handleDeletePost(deletedPost) {
+    fetch(`/users/${user.id}/posts/${deletedPost.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(post),
+      body: JSON.stringify(deletedPost),
     })
       .then((r) => r.json())
       .then(() => {
-        // Filter out the deleted post from the userPosts array
-        const newPostArray = userPosts.filter((findPost) => {
-          return findPost.id !== post.id;
+        const newPostArray = userPosts.filter((post) => {
+          return post.id !== deletedPost.id;
         });
-        // Update the userPosts context with the new array
+        const updatedChannelArray = channels.map((channel) => {
+          if (channel.id === deletedPost.channel_id) {
+            return {
+              ...channel,
+              posts: channel.posts.filter((post) => post.id !== deletedPost.id)
+            };
+          } else {
+            return channel;
+          }
+        });
         setUserPosts(newPostArray);
-
-        // Remove the post from the channel it belongs to
-        const channelID = post.channel.id;
-        fetch(`/channels/${channelID}/posts/${post.id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(post),
-        });
+        setChannels(updatedChannelArray);
       });
   }
 
-  // Function to update a post
-  function updatePost(updatedPost, postID) {
+  function handleUpdate(updatedPost, postID) {
     fetch(`/users/${user.id}/posts/${postID}`, {
       method: "PATCH",
       headers: {
@@ -48,28 +48,38 @@ function PostLists() {
       },
       body: JSON.stringify(updatedPost),
     })
-      .then((r) => r.json())
-      .then((updatedPost) => {
-        const newPostArray = [...userPosts];
-        const updatedPostIndex = newPostArray.findIndex((post) => post.id === updatedPost.id);
-        if (updatedPostIndex !== -1) {
-          newPostArray[updatedPostIndex] = updatedPost;
-          setUserPosts(newPostArray);
-        }
-  
-        // Update the corresponding post in the channel it belongs to
-      if (updatedPost.channel && updatedPost.channel.id) {
-        const channelID = updatedPost.channel.id;
-        fetch(`/channels/${channelID}/posts/${updatedPost.id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updatedPost),
+    .then((r) => r.json())
+    .then((updatedPost) => {
+      if (channels) { // Check if channels is not null
+        const updatedChannelArray = channels.map((channel) => {
+          if (channel.id === updatedPost.channel_id) {
+            return {
+              ...channel,
+              posts: channel.posts.map((post) => {
+                if (post.id === updatedPost.id) {
+                  return updatedPost;
+                } else {
+                  return post;
+                }
+              }),
+            };
+          } else {
+            return channel;
+          }
         });
+        const updatedPostArray = userPosts.map((post) => {
+          if (post.id === updatedPost.id) {
+            return updatedPost;
+          } else {
+            return post;
+          }
+        });
+        setChannels(updatedChannelArray);
+        setUserPosts(updatedPostArray);
       }
     });
 }
+
 
   // Function to render the post components
   const postComponent = () => {
@@ -83,8 +93,8 @@ function PostLists() {
       }
 
       // Function to handle the update form submission
-      function handleUpdate(newPost) {
-        updatePost(newPost, post.id);
+      function handleUpdateFormSubmit(newPost) {
+        handleUpdate(newPost, post.id);
       }
 
         // Render the post with the update form and delete button
@@ -98,7 +108,7 @@ function PostLists() {
                     <br />
                     {post.content}
                     <br />
-                    <UpdatePostForm post={post} updatePost={handleUpdate} />
+                    <UpdatePostForm post={post} handleUpdateFormSubmit={handleUpdateFormSubmit} />
                     <button onClick={handleDeleteClick}>Delete Post</button>
                     <br />
                     <br />

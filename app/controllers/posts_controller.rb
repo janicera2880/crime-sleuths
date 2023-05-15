@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     def update
         post = find_post
         if authorized_user?(post.user)
-          post.update!(post_params)
+          post.update!(update_post_params)
           render json: post, status: :ok
         else
           render json: { error: "You are not authorized to update this post" }, status: :unauthorized
@@ -68,7 +68,10 @@ class PostsController < ApplicationController
         User.find(session[:user_id])
 
     end
-
+    def update_post_params
+      params.permit(:title, :content)
+    end
+    
     def authorize
         render json: { error: "Not authorized" }, status: :unauthorized unless session.include?(:user_id)
       end
