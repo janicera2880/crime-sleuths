@@ -39,7 +39,7 @@ function LoginMessage() {
       <img id="logoImg" src={headerImg} alt="crimesleuthsImg"/>
       <br />
       <Link to={"/login"}>
-        Embark on an enriching journey through a vast collection of captivating stories...
+      Embark on an enriching journey through a vast collection of captivating stories...
       </Link>
       <br />
       <br />

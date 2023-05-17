@@ -6,10 +6,11 @@ import UpdatePostForm from "./UpdatePostForm";
 import { ChannelsContext } from "../Context/ChannelsContext";
 
 function PostLists() {
-  // Get the user and userPosts context
-  const { user } = useContext(UserContext);
-  const { userPosts, setUserPosts } = useContext(PostsContext);
-  const { channels, setChannels } = useContext(ChannelsContext);
+  
+  const { user } = useContext(UserContext); // Access the user data from the UserContext
+  const { userPosts, setUserPosts } = useContext(PostsContext); // Access the userPosts data and the setUserPosts function from the PostsContext
+  const { channels, setChannels } = useContext(ChannelsContext); // Access the channels data and the setChannels function from the ChannelsContext
+
 
   // Function to delete post
   function handleDeletePost(deletedPost) {

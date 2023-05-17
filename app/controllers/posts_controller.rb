@@ -24,7 +24,7 @@ class PostsController < ApplicationController
         user = find_user
         if authorized_user?(user)
         new_post = user.posts.create!(post_params)
-        render json: new_post, status: :created 
+        render json: new_post, status: :created
     else
         render json: { error: "You are not authorized to create a post" }, status: :unauthorized
       end
