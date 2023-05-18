@@ -4,7 +4,7 @@ import { UserContext } from "../Context/UserContext";
 import { PostsContext } from "../Context/PostsContext";
 import UpdatePostForm from "./UpdatePostForm";
 import { ChannelsContext } from "../Context/ChannelsContext";
-import ReactMarkdown from "react-markdown";
+
 
 function PostLists() {
   
@@ -108,7 +108,7 @@ function PostLists() {
                     <br />
                     <img src={post.image} width="400" height="300" alt="Post" />
                     <br />
-                    <ReactMarkdown>{post.content}</ReactMarkdown>
+                    {post.content}
                     <br />
                     <UpdatePostForm post={post} handleUpdateFormSubmit={handleUpdateFormSubmit} />
                     <button onClick={handleDeleteClick}>Delete Post</button>

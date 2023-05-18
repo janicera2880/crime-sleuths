@@ -74,7 +74,7 @@ class PostsController < ApplicationController
     
     def authorize
         render json: { error: "Not authorized" }, status: :unauthorized unless session.include?(:user_id)
-      end
+    end
     
       def render_not_found_response
         render json: { error: "Record not found" }, status: :not_found

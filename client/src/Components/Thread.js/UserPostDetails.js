@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import ReactMarkdown from "react-markdown";
 //this function is a React component that renders a post and the user who created it.
 function UserPostDetails() {
 
@@ -38,7 +38,7 @@ function UserPostDetails() {
             <img src={post.image} alt="Post" className="post-image" />
           </div>
         )}
-        <p className="post-content">{post.content}</p>
+        <p className="post-content"><ReactMarkdown>{post.content}</ReactMarkdown></p>
       </div>
     );
   }

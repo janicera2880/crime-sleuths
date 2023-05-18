@@ -8,29 +8,31 @@ class ChannelsController < ApplicationController
     render json: channels, include: ['posts', 'posts.user']
   end
 
-  # SHOW display a specific /channels/:id
+  # GET /channels/:id
   def show
     channel = find_channel
     render json: channel, include: ['posts', 'posts.user']
   end
 
-  # POST create Channel
+  # POST /channels
   def create
     channel = Channel.create!(channel_params)
     render json: channel, status: :created
   end
 
   private
-
+  
+  # Strong parameters for channel creation
   def channel_params
     params.permit(:name, :description)
   end
 
+  # Find channel by ID
   def find_channel
     Channel.find(params[:id])
   end
 
-
+# Render a JSON response for "Channel Not Found" error
   def render_not_found_response
     render json: { error: 'Channel Not Found' }, status: :not_found
   end
