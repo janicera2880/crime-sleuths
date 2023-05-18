@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+     # Run the authorize method before every action, except for index and show
     before_action :authorize
     skip_before_action :authorize, only: [:index, :show]
     
-    # GET
+   # GET /posts
     def index
       if params[:user_id]
         user = find_user
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
         render json: post, status: :ok
     end
 
-    # POST
+    # POST /posts
     def create
         user = find_user
         if authorized_user?(user)
@@ -32,7 +33,7 @@ class PostsController < ApplicationController
       render json: { errors: e.record.errors }, status: :unprocessable_entity
     end
 
-    # PATCH
+    # PATCH /posts/:id
     def update
         post = find_post
         if authorized_user?(post.user)
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
         end
       end
 
-    # DELETE
+     # DELETE /posts/:id
     def destroy
       post = find_post
       if authorized_user?(post.user)
@@ -56,31 +57,38 @@ class PostsController < ApplicationController
 
     private 
 
+    # Strong parameters for creating a post
     def post_params
         params.permit(:title, :image, :content, :channel_id, :user_id)
     end
-
+    
+    # Find a post by its ID
     def find_post 
         Post.find(params[:id])
     end 
 
+    # Find a user by the user_id stored in the session
     def find_user
         User.find(session[:user_id])
-
     end
+
+    # Strong parameters for updating a post
     def update_post_params
       params.permit(:title, :content)
     end
     
+    # Check if the user is authorized based on the session
     def authorize
         render json: { error: "Not authorized" }, status: :unauthorized unless session.include?(:user_id)
     end
     
-      def render_not_found_response
-        render json: { error: "Record not found" }, status: :not_found
-      end
-    
-      def authorized_user?(user)
-        user && user.id == session[:user_id]
-      end
+    # Render a not found response
+    def render_not_found_response
+      render json: { error: "Record not found" }, status: :not_found
     end
+    
+    # Check if the given user is authorized based on the session
+    def authorized_user?(user)
+      user && user.id == session[:user_id]
+    end
+  end
