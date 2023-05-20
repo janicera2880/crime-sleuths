@@ -1,6 +1,3 @@
-![Black and White Photo True Crime   Investigative Journalism Podcast Cover](https://github.com/janicera2880/crime-sleuths/assets/104116819/ec4df2f7-a231-4e56-9425-ea8c88092c16)
-
-![P4Gif](https://j.gifs.com/lRWNQV.gif)
 
 ### Table Of Contents
 
