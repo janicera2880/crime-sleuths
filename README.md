@@ -1,7 +1,5 @@
-![Black and White Photo True Crime   Investigative Journalism Podcast Cover](https://github.com/janicera2880/crime-sleuths/assets/104116819/ec4df2f7-a231-4e56-9425-ea8c88092c16)
 
-![P4Gif](https://j.gifs.com/lRWNQV.gif)
-
+![crime-sleuths](https://github.com/janicera2880/crime-sleuths/assets/104116819/36aa4431-cb14-4b3f-b131-b66ec0dfaecc)
 ### Table Of Contents
 
 [Description](#description) 
@@ -88,8 +86,8 @@ Please make sure to update tests as appropriate.
 ## Credit
 
 ***Images and GIFs***
-- The images and GIFs used in this app were sourced from [Canva](“https://www.canva.com/”)
- and [GIPHY](“https://giphy.com”).
+- The images and GIFs used in this app were sourced from [Canva](https://www.canva.com)
+ and [GIPHY](https://giphy.com).
 
 ***Blog Stories***
 Credit to Google for providing valuable information and resources used in the development of this app. Google's search engine has been instrumental in gathering relevant data and insights related to crime investigation and human behavior.
