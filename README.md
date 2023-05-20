@@ -89,7 +89,7 @@ Please make sure to update tests as appropriate.
 
 ***Images and GIFs***
 - The images and GIFs used in this app were sourced from [Canva](“https://www.canva.com/”)
- and [GIPHY](“https://giphy.com”).
+ and [Gifs](“https://gifs.com/”).
 
 ***Blog Stories***
 Credit to Google for providing valuable information and resources used in the development of this app. Google's search engine has been instrumental in gathering relevant data and insights related to crime investigation and human behavior.
