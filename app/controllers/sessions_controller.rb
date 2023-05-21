@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     #Use class method to skip the authorize filter only on the create action
     skip_before_action :authorize, only: :create
   
-    #POST Login
+    #POST /login
     #Create method would look up a user in the database
     #Verify their login credentials, and then store the authenticated user's id
     def create
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         render json: user, status: :ok
       else
-        render json: { error: ["Invalid username or password"] }, status: :unauthorized
+        render json: { error: ["Invalid Username or Password"] }, status: :unauthorized
       end
     end
     

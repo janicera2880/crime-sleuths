@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   end
   
   resources :posts
-  post "/signup", to: "users#create"
-  post "/login", to: "sessions#create"
-  get "/me", to: "users#show"
-  delete "/logout", to: "sessions#destroy"
+  post "/signup", to: "users#create" #This route is used for creating a new user account.
+  post "/login", to: "sessions#create" #This route is used for user login/authentication.
+  get "/me", to: "users#show" #This route is used to retrieve the current user's information.
+  delete "/logout", to: "sessions#destroy" #This route is used to logout user from session.
+  
 end
