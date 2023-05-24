@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
   resources :channels, only: [:index, :show, :create] do
-    # Nested resource for posts
-    # By adding the do...end we can pass it a block of its nested routes.
+    #Nested resource for posts
+    #By adding the do...end we can pass it a block of its nested routes.
     resources :posts
   end
 
   resources :users, only: [:index, :show, :update] do
+    #Posts are accessed within the context of a user.
     resources :posts, only: [:index, :update, :destroy]
   end
   
@@ -19,5 +20,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create" #This route is used for user login/authentication.
   get "/me", to: "users#show" #This route is used to retrieve the current user's information.
   delete "/logout", to: "sessions#destroy" #This route is used to logout user from session.
-  
+
 end

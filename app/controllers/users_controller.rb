@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   before_action :authorize, except: [:create, :index]
 
 
-    # Get ALL Users
+    # Get ALL Users '/users'
     def index
         users = User.all
         render json: users
     end
 
+    # GET /me
     # finds a specific user based on the params[:id] parameter
     def show
       user = find_user
