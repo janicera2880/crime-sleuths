@@ -28,29 +28,17 @@ function NavBar(){
             <br />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
+        
             <NavLink to="/"> Homepage</NavLink>
             <br />
             <br />
-            <br />
+       
             <NavLink to="/channels"> All Channels </NavLink>
             <br />
             <br />
-            <br />
+          
             <NavLink to="/posts"> Top Stories </NavLink>
             <div class="footer">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
             <br />
             <br />
             <br />

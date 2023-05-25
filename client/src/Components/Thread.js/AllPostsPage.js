@@ -42,6 +42,14 @@ const AllPostsPage = () => {
     }
   };
 
+  const prevPost = () => {
+    if (currentIndex === 0) {
+      alert("You are on the first page.");
+    } else {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
   return (
     <div className="all-post">
       <div className="view-card" key={currentPost.id}>
@@ -51,14 +59,21 @@ const AllPostsPage = () => {
         )}
         <p>{currentPost.content}</p>
         <h4>Author: {currentPost.user.username}</h4>
-        <h5>Date: {new Date(currentPost.created_at).toLocaleDateString()}</h5>
+        <h5>Date Posted: {new Date(currentPost.created_at).toLocaleDateString()}</h5>
       </div>
       <br />
-      <button onClick={nextPost} disabled={currentIndex === posts.length - 1}>
-        Next
-      </button>
+      <div>
+        <button onClick={prevPost} disabled={currentIndex === 0}>
+        &#8592; Back
+        </button>
+      
+        <button onClick={nextPost} disabled={currentIndex === posts.length - 1}>
+        Next &#8594;
+        </button>
+      </div>
     </div>
   );
 };
 
 export default AllPostsPage;
+

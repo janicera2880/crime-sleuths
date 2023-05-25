@@ -40,7 +40,7 @@ function App() {
     }
   }, [user, setUserPosts]);
 
-  useEffect( ()=>{
+  useEffect( ()=> {
     fetch("/channels").then( r => r.json() ).then( (data)=>{
         setChannels(data);
     })
