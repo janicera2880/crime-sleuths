@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get "/me", to: "users#show" #This route is used to retrieve the current user's information.
   delete "/logout", to: "sessions#destroy" #This route is used to logout user from session.
 
+  get "/channel_posts/:n", to: "channels#channel_posts"
 end

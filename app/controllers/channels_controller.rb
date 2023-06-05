@@ -1,6 +1,6 @@
 class ChannelsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-  skip_before_action :authorize, only: [:index, :show]
+  skip_before_action :authorize, only: [:index, :show, :channel_posts]
 
   # GET /channels
   def index
@@ -20,6 +20,13 @@ class ChannelsController < ApplicationController
     render json: channel, status: :created
   end
 
+  #LIVE CODING
+  def channel_posts
+  n = params[:n].to_i
+  channels = Channel.joins(:posts).group(:id).having('COUNT(posts.id) >=?', n)
+  render json: channels
+  end
+  
   private
   
   # Strong parameters for channel creation
